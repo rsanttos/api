@@ -20,7 +20,8 @@ public class GenericRequest {
     private String fullAddress = "";
     protected String methodType = "GET";
 	protected String requestContent = "";
-    protected Map<String, String> propriedades = new HashMap<String, String>();
+	protected String xApiKey = "EGaxX1G86pwPBmmyVtACA23P02uS8ZXJXIX5FWnG";
+    protected Map<String, String> properties = new HashMap<String, String>();
 
     public String objectRequest(){
         String strJson = "";
@@ -34,8 +35,8 @@ public class GenericRequest {
 			urlConnection.setRequestProperty("Content-Type", "application/json");
 
             
-            if (propriedades != null && propriedades.size() > 0) {
-				for (Entry<String, String> propriedadesEntry : propriedades.entrySet()) {
+            if (properties != null && properties.size() > 0) {
+				for (Entry<String, String> propriedadesEntry : properties.entrySet()) {
 					urlConnection.setRequestProperty(propriedadesEntry.getKey(), propriedadesEntry.getValue());
 				}
 			}   
