@@ -1,7 +1,11 @@
 package br.com.ufrn.agendaaluno.api.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
 
+import br.com.ufrn.agendaaluno.api.model.Calendar;
 import br.com.ufrn.agendaaluno.api.model.Holiday;
 
 public class CalendarDTO {
@@ -14,74 +18,109 @@ public class CalendarDTO {
 	private long inicio_periodo;
 	private long inicio_rematricula;
 	private HolidayDTO[] holidays;
+
 	public CalendarDTO() {
 		super();
 	}
+
 	public int getAno() {
 		return ano;
 	}
+
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
+
 	public long getFim_matricula_extraordinaria() {
 		return fim_matricula_extraordinaria;
 	}
+
 	public void setFim_matricula_extraordinaria(long fim_matricula_extraordinaria) {
 		this.fim_matricula_extraordinaria = fim_matricula_extraordinaria;
 	}
+
 	public long getFim_matricula_online() {
 		return fim_matricula_online;
 	}
+
 	public void setFim_matricula_online(long fim_matricula_online) {
 		this.fim_matricula_online = fim_matricula_online;
 	}
+
 	public long getFim_periodo() {
 		return fim_periodo;
 	}
+
 	public void setFim_periodo(long fim_periodo) {
 		this.fim_periodo = fim_periodo;
 	}
+
 	public long getInicio_matricula_online() {
 		return inicio_matricula_online;
 	}
+
 	public void setInicio_matricula_online(long inicio_matricula_online) {
 		this.inicio_matricula_online = inicio_matricula_online;
 	}
+
 	public long getInicio_periodo() {
 		return inicio_periodo;
 	}
+
 	public void setInicio_periodo(long inicio_periodo) {
 		this.inicio_periodo = inicio_periodo;
 	}
+
 	public long getInicio_rematricula() {
 		return inicio_rematricula;
 	}
+
 	public void setInicio_rematricula(long inicio_rematricula) {
 		this.inicio_rematricula = inicio_rematricula;
 	}
+
 	public HolidayDTO[] getHolidays() {
 		return holidays;
 	}
+
 	public void setHolidays(HolidayDTO[] holidays) {
 		this.holidays = holidays;
 	}
+
 	public String toJson() {
-		Gson gson = new Gson();		
+		Gson gson = new Gson();
 		return gson.toJson(this);
 	}
-	
+
+	public Calendar toEntity() {
+		Calendar calendar = new Calendar();
+		calendar.setAno(this.ano);
+		calendar.setFimMatriculaExtraordinaria(this.fim_matricula_extraordinaria);
+		calendar.setFimMatriculaOnline(this.fim_matricula_online);
+		calendar.setFimPeriodo(this.fim_periodo);
+		calendar.setInicioMatriculaOnline(this.inicio_matricula_online);
+		calendar.setInicioPeriodo(this.inicio_periodo);
+		calendar.setInicioRematricula(this.inicio_rematricula);
+		List<Holiday> hs = new ArrayList<Holiday>();
+		for (int i = 0; i < this.holidays.length; i++) {
+			hs.add(this.holidays[i].toEntity());
+		}
+		calendar.setHolidays(hs);
+		return calendar;
+	}
+
 	public static CalendarDTO toObject(String json) {
-		Gson gson = new Gson();		
-		
+		Gson gson = new Gson();
+
 		return gson.fromJson(trataJson(json), CalendarDTO.class);
 	}
-	
+
 	public static String trataJson(String json) {
-		if(json.contains("-")) {
+		if (json.contains("-")) {
 			return json.replace("-", "_");
 		} else {
 			return json;
 		}
 	}
-	
+
 }

@@ -1,8 +1,8 @@
 package br.com.ufrn.agendaaluno.api.dto;
 
-import java.util.List;
-
 import com.google.gson.Gson;
+
+import br.com.ufrn.agendaaluno.api.model.Holiday;
 
 public class HolidayDTO {
 	private long data_feriado;
@@ -36,8 +36,15 @@ public class HolidayDTO {
 
 	public static HolidayDTO[] toArrayObject(String json) {
 		Gson gson = new Gson();
-		json = trataJson(json);		
+		json = trataJson(json);
 		return gson.fromJson(json, HolidayDTO[].class);
+	}
+
+	public Holiday toEntity() {
+		Holiday holiday = new Holiday();
+		holiday.setDataFeriado(this.data_feriado);
+		holiday.setDescricao(this.descricao);
+		return holiday;
 	}
 
 	public static String trataJson(String json) {
