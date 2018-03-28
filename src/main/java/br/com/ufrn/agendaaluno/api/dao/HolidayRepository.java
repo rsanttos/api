@@ -1,5 +1,9 @@
 package br.com.ufrn.agendaaluno.api.dao;
 
-public interface HolidayRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.ufrn.agendaaluno.api.model.Holiday;
+
+public interface HolidayRepository extends CrudRepository<Holiday, Long> {
 
 }
