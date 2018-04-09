@@ -11,12 +11,15 @@ import br.com.ufrn.agendaaluno.api.model.Holiday;
 public class CalendarDTO {
 
 	private int ano;
-	private long fim_matricula_extraordinaria;
-	private long fim_matricula_online;
-	private long fim_periodo;
 	private long inicio_matricula_online;
 	private long inicio_periodo;
 	private long inicio_rematricula;
+	private long inicio_matricula_extraordinaria;
+	private long fim_matricula_extraordinaria;
+	private long fim_matricula_online;
+	private long fim_periodo;
+	private long fim_rematricula;
+	
 	private HolidayDTO[] holidays;
 
 	public CalendarDTO() {
@@ -79,6 +82,22 @@ public class CalendarDTO {
 		this.inicio_rematricula = inicio_rematricula;
 	}
 
+	public long getInicio_matricula_extraordinaria() {
+		return inicio_matricula_extraordinaria;
+	}
+
+	public void setInicio_matricula_extraordinaria(long inicio_matricula_extraordinaria) {
+		this.inicio_matricula_extraordinaria = inicio_matricula_extraordinaria;
+	}
+
+	public long getFim_rematricula() {
+		return fim_rematricula;
+	}
+
+	public void setFim_rematricula(long fim_rematricula) {
+		this.fim_rematricula = fim_rematricula;
+	}
+
 	public HolidayDTO[] getHolidays() {
 		return holidays;
 	}
@@ -93,14 +112,18 @@ public class CalendarDTO {
 	}
 
 	public Calendar toEntity() {
+		
 		Calendar calendar = new Calendar();
-		calendar.setAno(this.ano);
-		calendar.setFimMatriculaExtraordinaria(this.fim_matricula_extraordinaria);
-		calendar.setFimMatriculaOnline(this.fim_matricula_online);
-		calendar.setFimPeriodo(this.fim_periodo);
-		calendar.setInicioMatriculaOnline(this.inicio_matricula_online);
-		calendar.setInicioPeriodo(this.inicio_periodo);
-		calendar.setInicioRematricula(this.inicio_rematricula);
+		calendar.setYear(this.ano);
+		calendar.setStartOnlineEnrollment(this.inicio_matricula_online);
+		calendar.setStartPeriod(this.inicio_periodo);
+		calendar.setStartReEnrollment(this.inicio_rematricula);
+		calendar.setStartExtraordinaryEnrollment(this.inicio_matricula_extraordinaria);
+		calendar.setEndExtraordinaryEnrollment(this.fim_matricula_extraordinaria);
+		calendar.setEndOnlineEnrollment(this.fim_matricula_online);
+		calendar.setEndPeriod(this.fim_periodo);
+		calendar.setEndReEnrollment(this.fim_rematricula);
+		
 		List<Holiday> hs = new ArrayList<Holiday>();
 		for (int i = 0; i < this.holidays.length; i++) {
 			hs.add(this.holidays[i].toEntity());

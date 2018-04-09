@@ -42,8 +42,8 @@ public class HolidayDTO {
 
 	public Holiday toEntity() {
 		Holiday holiday = new Holiday();
-		holiday.setDataFeriado(this.data_feriado);
-		holiday.setDescricao(this.descricao);
+		holiday.setDate(this.data_feriado);
+		holiday.setDescription(this.descricao);
 		return holiday;
 	}
 

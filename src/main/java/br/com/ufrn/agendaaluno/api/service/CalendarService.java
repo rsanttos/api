@@ -17,8 +17,8 @@ public class CalendarService {
 	@Autowired
 	private HolidayRepository holidayRepo;
 	
-	public Calendar getCalendarByAno(int ano) {
-		return calendarRepo.findByAno(ano);
+	public Calendar getCalendarByAno(int year) {
+		return calendarRepo.findByYear(year);
 	}
 	
 	public void save(Calendar calendar) {
