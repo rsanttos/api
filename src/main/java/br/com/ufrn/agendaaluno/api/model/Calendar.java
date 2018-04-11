@@ -17,13 +17,15 @@ public class Calendar {
 	@Column(name = "id_calendar")
 	private long idCalendar;
 	
-	private int ano;
-	private long fimMatriculaExtraordinaria;
-	private long fimMatriculaOnline;
-	private long fimPeriodo;
-	private long inicioMatriculaOnline;
-	private long inicioPeriodo;
-	private long inicioRematricula;
+	private int year;
+	private long startOnlineEnrollment;
+	private long startExtraordinaryEnrollment;
+	private long startPeriod;
+	private long startReEnrollment;
+	private long endExtraordinaryEnrollment;
+	private long endOnlineEnrollment;
+	private long endPeriod;
+	private long endReEnrollment;
 	
 	@OneToMany(mappedBy = "calendar", targetEntity = Holiday.class, fetch = FetchType.LAZY)
 	private List<Holiday> holidays;
@@ -41,63 +43,95 @@ public class Calendar {
 	public void setIdCalendar(long idCalendar) {
 		this.idCalendar = idCalendar;
 	}
-
-
-	public int getAno() {
-		return ano;
+	
+	public int getYear() {
+		return year;
 	}
 
-	public void setAno(int ano) {
-		this.ano = ano;
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
-	public long getFimMatriculaExtraordinaria() {
-		return fimMatriculaExtraordinaria;
+	public long getStartOnlineEnrollment() {
+		return startOnlineEnrollment;
 	}
 
-	public void setFimMatriculaExtraordinaria(long fimMatriculaExtraordinaria) {
-		this.fimMatriculaExtraordinaria = fimMatriculaExtraordinaria;
+
+	public void setStartOnlineEnrollment(long startOnlineEnrollment) {
+		this.startOnlineEnrollment = startOnlineEnrollment;
 	}
 
-	public long getFimMatriculaOnline() {
-		return fimMatriculaOnline;
+
+	public long getStartExtraordinaryEnrollment() {
+		return startExtraordinaryEnrollment;
 	}
 
-	public void setFimMatriculaOnline(long fimMatriculaOnline) {
-		this.fimMatriculaOnline = fimMatriculaOnline;
+
+	public void setStartExtraordinaryEnrollment(long startExtraordinaryEnrollment) {
+		this.startExtraordinaryEnrollment = startExtraordinaryEnrollment;
 	}
 
-	public long getFimPeriodo() {
-		return fimPeriodo;
+
+	public long getStartPeriod() {
+		return startPeriod;
 	}
 
-	public void setFimPeriodo(long fimPeriodo) {
-		this.fimPeriodo = fimPeriodo;
+
+	public void setStartPeriod(long startPeriod) {
+		this.startPeriod = startPeriod;
 	}
 
-	public long getInicioMatriculaOnline() {
-		return inicioMatriculaOnline;
+
+	public long getStartReEnrollment() {
+		return startReEnrollment;
 	}
 
-	public void setInicioMatriculaOnline(long inicioMatriculaOnline) {
-		this.inicioMatriculaOnline = inicioMatriculaOnline;
+
+	public void setStartReEnrollment(long startReEnrollment) {
+		this.startReEnrollment = startReEnrollment;
 	}
 
-	public long getInicioPeriodo() {
-		return inicioPeriodo;
+
+	public long getEndExtraordinaryEnrollment() {
+		return endExtraordinaryEnrollment;
 	}
 
-	public void setInicioPeriodo(long inicioPeriodo) {
-		this.inicioPeriodo = inicioPeriodo;
+
+	public void setEndExtraordinaryEnrollment(long endExtraordinaryEnrollment) {
+		this.endExtraordinaryEnrollment = endExtraordinaryEnrollment;
 	}
 
-	public long getInicioRematricula() {
-		return inicioRematricula;
+
+	public long getEndOnlineEnrollment() {
+		return endOnlineEnrollment;
 	}
 
-	public void setInicioRematricula(long inicioRematricula) {
-		this.inicioRematricula = inicioRematricula;
+
+	public void setEndOnlineEnrollment(long endOnlineEnrollment) {
+		this.endOnlineEnrollment = endOnlineEnrollment;
 	}
+
+
+	public long getEndPeriod() {
+		return endPeriod;
+	}
+
+
+	public void setEndPeriod(long endPeriod) {
+		this.endPeriod = endPeriod;
+	}
+
+
+	public long getEndReEnrollment() {
+		return endReEnrollment;
+	}
+
+
+	public void setEndReEnrollment(long endReEnrollment) {
+		this.endReEnrollment = endReEnrollment;
+	}
+
 
 	public List<Holiday> getHolidays() {
 		return holidays;

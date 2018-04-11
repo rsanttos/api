@@ -13,15 +13,29 @@ public class Holiday {
 	@GeneratedValue
 	@Column(name = "id_holiday")
 	private long idHoliday;
-	
-	private long dataFeriado;
-	private String descricao;
+
+	private long date;
+	private String description;
+
 	@ManyToOne
 	@JoinColumn(name = "id_calendar")
 	private Calendar calendar;
 
 	public Holiday() {
 		super();
+	}
+
+	public Holiday(long date, String description) {
+		super();
+		this.date = date;
+		this.description = description;
+	}
+
+	public Holiday(long date, String description, Calendar calendar) {
+		super();
+		this.date = date;
+		this.description = description;
+		this.calendar = calendar;
 	}
 
 	public long getIdHoliday() {
@@ -32,20 +46,20 @@ public class Holiday {
 		this.idHoliday = idHoliday;
 	}
 
-	public long getDataFeriado() {
-		return dataFeriado;
+	public long getDate() {
+		return date;
 	}
 
-	public void setDataFeriado(long dataFeriado) {
-		this.dataFeriado = dataFeriado;
+	public void setDate(long date) {
+		this.date = date;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Calendar getCalendar() {
