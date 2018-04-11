@@ -31,18 +31,18 @@ public class ApiApplication {
 	@Bean
 	public CommandLineRunner inicializaBD() {
 		return (args) -> {
-			AuthenticationDTO authDto = authService.authenticate();	
-		
-			CalendarRequest calendarRequest = new CalendarRequest();
-			HolidayRequest holidayRequest = new HolidayRequest();
-			
-			CalendarDTO calendarDto = calendarRequest.getCalendar(authDto.getAccess_token());
-			HolidayDTO[] holidaysDto = holidayRequest.getHolidays(authDto.getAccess_token());
-			calendarDto.setHolidays(holidaysDto);
-			
-			Calendar calendar = calendarDto.toEntity();
-			
-			calendarService.save(calendar);
+//			AuthenticationDTO authDto = authService.authenticate();	
+//		
+//			CalendarRequest calendarRequest = new CalendarRequest();
+//			HolidayRequest holidayRequest = new HolidayRequest();
+//			
+//			CalendarDTO calendarDto = calendarRequest.getCalendar(authDto.getAccess_token());
+//			HolidayDTO[] holidaysDto = holidayRequest.getHolidays(authDto.getAccess_token());
+//			calendarDto.setHolidays(holidaysDto);
+//			
+//			Calendar calendar = calendarDto.toEntity();
+//			
+//			calendarService.save(calendar);
 		};
 	}
 }
