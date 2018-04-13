@@ -1,19 +1,23 @@
 package br.com.ufrn.agendaaluno.api.dto;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 
 public class StudentDTO {
-	
+
 	private int ano_ingresso;
 	private String cpf_cnpj;
 	private int id_curso;
 	private int id_discente;
-	private int matricula;
+	private long matricula;
 	private String nome_curso;
 	private String nome_discente;
 	private int periodo_ingresso;
 	private String sigla_nivel;
-	
+
+	private List<ClassDTO> classes;
+
 	public StudentDTO() {
 		super();
 	}
@@ -50,11 +54,11 @@ public class StudentDTO {
 		this.id_discente = id_discente;
 	}
 
-	public int getMatricula() {
+	public long getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
+	public void setMatricula(long matricula) {
 		this.matricula = matricula;
 	}
 
@@ -89,17 +93,42 @@ public class StudentDTO {
 	public void setSigla_nivel(String sigla_nivel) {
 		this.sigla_nivel = sigla_nivel;
 	}
+
+	public List<ClassDTO> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(List<ClassDTO> classes) {
+		this.classes = classes;
+	}
+
 	public String toJson() {
 		Gson gson = new Gson();
 		return gson.toJson(this);
 	}
-	
+
 	public static StudentDTO toObject(String json) {
 		Gson gson = new Gson();
 
-		return gson.fromJson(trataJson(json), StudentDTO.class);
+		if (json.startsWith("[")) {
+			System.out.println(json.charAt(json.length() - 1));
+			StudentDTO[] studentArray = toArrayObject(json);
+			if (studentArray != null && studentArray.length == 1) {
+				return studentArray[0];
+			} else {
+				return null;
+			}
+		} else {
+			return gson.fromJson(trataJson(json), StudentDTO.class);
+		}
 	}
-	
+
+	public static StudentDTO[] toArrayObject(String json) {
+		Gson gson = new Gson();
+		json = trataJson(json);
+		return gson.fromJson(json, StudentDTO[].class);
+	}
+
 	public static String trataJson(String json) {
 		if (json.contains("-")) {
 			return json.replace("-", "_");

@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 
 public class GenericRequest {
 	
-	private String host = "https://apitestes.info.ufrn.br/";
+	private String host = "https://api.info.ufrn.br/";
     protected String url = "";
     private String fullAddress = "";
     protected String methodType = "GET";
