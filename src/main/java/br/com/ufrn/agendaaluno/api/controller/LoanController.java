@@ -15,8 +15,8 @@ public class LoanController {
 	@Autowired
 	private LoanService loanService;	
 
-	@RequestMapping(value = "/student/loans/{token}", method = RequestMethod.GET)
-	public LoanDTO[] getLoans(@PathVariable String token) {
-		return loanService.getLoans(token);
+	@RequestMapping(value = "/student/loans/{cpf}/{token}", method = RequestMethod.GET)
+	public LoanDTO[] getLoans(@PathVariable String cpf, @PathVariable String token) {
+		return loanService.getLoans(cpf, token);
 	}
 }

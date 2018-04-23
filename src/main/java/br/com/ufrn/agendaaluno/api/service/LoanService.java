@@ -7,8 +7,8 @@ import br.com.ufrn.agendaaluno.api.request.LoanRequest;
 
 @Service
 public class LoanService {
-	public LoanDTO[] getLoans(String token) {
+	public LoanDTO[] getLoans(String cpf, String token) {
 		LoanRequest loanRequest = new LoanRequest();
-		return loanRequest.getLoans(token);
+		return loanRequest.getLoans(cpf, token);
 	}
 }
