@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 public class TaskDTO {
 	private int id_turma;
+	private String nomeComponente;
 	private String titulo;
 	private String conteudo;
 	private long data_inicio;
@@ -13,8 +14,8 @@ public class TaskDTO {
 	private int minuto_inicio;
 	private int minuto_entrega;
 
-	public TaskDTO(int id_turma, String titulo, String conteudo, long data_inicio, long data_entrega,
-			int hora_inicio, int hora_entrega, int minuto_inicio, int minuto_entrega) {
+	public TaskDTO(int id_turma, String titulo, String conteudo, long data_inicio, long data_entrega, int hora_inicio,
+			int hora_entrega, int minuto_inicio, int minuto_entrega) {
 		super();
 		this.id_turma = id_turma;
 		this.titulo = titulo;
@@ -25,6 +26,14 @@ public class TaskDTO {
 		this.hora_entrega = hora_entrega;
 		this.minuto_inicio = minuto_inicio;
 		this.minuto_entrega = minuto_entrega;
+	}
+
+	public String getNomeComponente() {
+		return nomeComponente;
+	}
+
+	public void setNomeComponente(String nomeComponente) {
+		this.nomeComponente = nomeComponente;
 	}
 
 	public int getId_turma() {

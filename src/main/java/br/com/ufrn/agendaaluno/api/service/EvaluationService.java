@@ -7,9 +7,13 @@ import br.com.ufrn.agendaaluno.api.request.EvaluationRequest;
 
 @Service
 public class EvaluationService {
-	public EvaluationDTO[] getClassEvaluations(String token, int idClass) {
+	public EvaluationDTO[] getClassEvaluations(String token, int idClass, String nomeComponente) {
 		EvaluationRequest evaluationRequest = new EvaluationRequest();
-		return evaluationRequest.getClassEvaluations(token, idClass);
+		EvaluationDTO[] evaluations = evaluationRequest.getClassEvaluations(token, idClass);
+		for(int i = 0 ; i < evaluations.length ; i++) {
+			evaluations[i].setNomeComponente(nomeComponente);
+		}
+		return evaluations;
 	}
 	
 }

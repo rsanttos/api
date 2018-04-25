@@ -42,11 +42,11 @@ public class StudentController {
 		List<ClassDTO> studentClasses = classService.getActiveStudentClasses(token, student.getId_discente());
 		student.setClasses(studentClasses);
 		for(ClassDTO classDto : student.getClasses()) {
-			TaskDTO[] tasks = taskService.getClassTasks(token, classDto.getId_turma());
+			TaskDTO[] tasks = taskService.getClassTasks(token, classDto.getId_turma(), classDto.getNome_componente());
 			classDto.setTasks(tasks);
 		}
 		for(ClassDTO classDto : student.getClasses()) {
-			EvaluationDTO[] evaluations = evaluationService.getClassEvaluations(token, classDto.getId_turma());
+			EvaluationDTO[] evaluations = evaluationService.getClassEvaluations(token, classDto.getId_turma(), classDto.getNome_componente());
 			classDto.setEvaluations(evaluations);
 		}
 		System.out.println("\n---> INFORMAÇÕES GERADAS E ENVIADAS <---");

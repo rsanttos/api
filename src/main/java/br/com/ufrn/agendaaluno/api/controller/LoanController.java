@@ -1,5 +1,7 @@
 package br.com.ufrn.agendaaluno.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,7 @@ public class LoanController {
 	private LoanService loanService;	
 
 	@RequestMapping(value = "/student/loans/{cpf}/{token}", method = RequestMethod.GET)
-	public LoanDTO[] getLoans(@PathVariable String cpf, @PathVariable String token) {
+	public List<LoanDTO> getLoans(@PathVariable String cpf, @PathVariable String token) {
 		System.out.println("\n---> CLIENTE REQUISITOU EMPRÉSTIMOS DO USUÁRIO <---");
 		System.out.println("---> CPF DO USUÁRIO: " + cpf + " <---");
 		System.out.println("\n---> EMPRÉSTIMOS GERADOS E ENVIADOS <---");

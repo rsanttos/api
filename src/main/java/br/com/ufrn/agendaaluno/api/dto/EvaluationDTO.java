@@ -5,12 +5,21 @@ import com.google.gson.Gson;
 public class EvaluationDTO {
 
 	private int id_avaliacao;
+	private String nomeComponente;
 	private long data;
 	private String hora;
 	private String descricao;
 
 	public EvaluationDTO() {
 		super();
+	}
+
+	public String getNomeComponente() {
+		return nomeComponente;
+	}
+
+	public void setNomeComponente(String nomeComponente) {
+		this.nomeComponente = nomeComponente;
 	}
 
 	public int getId_avaliacao() {
