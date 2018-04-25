@@ -34,6 +34,10 @@ public class StudentController {
 
 	@RequestMapping(value = "/student/{token}", method = RequestMethod.GET)
 	public StudentDTO getStudentLoggedIn(@PathVariable String token) {
+		System.out.println("\n---> CLIENTE REQUISITOU DADOS DO USUÁRIO <---");
+		System.out.println("---> INFORMAÇÕES DO ALUNO <---");
+		System.out.println("---> TAREFAS <---");
+		System.out.println("---> AVALIAÇÕES <---");
 		StudentDTO student = studentService.getStudentLoggedIn(token);
 		List<ClassDTO> studentClasses = classService.getActiveStudentClasses(token, student.getId_discente());
 		student.setClasses(studentClasses);
@@ -45,6 +49,7 @@ public class StudentController {
 			EvaluationDTO[] evaluations = evaluationService.getClassEvaluations(token, classDto.getId_turma());
 			classDto.setEvaluations(evaluations);
 		}
+		System.out.println("\n---> INFORMAÇÕES GERADAS E ENVIADAS <---");
 		return student;
 	}
 	

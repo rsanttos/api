@@ -17,6 +17,9 @@ public class LoanController {
 
 	@RequestMapping(value = "/student/loans/{cpf}/{token}", method = RequestMethod.GET)
 	public LoanDTO[] getLoans(@PathVariable String cpf, @PathVariable String token) {
+		System.out.println("\n---> CLIENTE REQUISITOU EMPRÉSTIMOS DO USUÁRIO <---");
+		System.out.println("---> CPF DO USUÁRIO: " + cpf + " <---");
+		System.out.println("\n---> EMPRÉSTIMOS GERADOS E ENVIADOS <---");
 		return loanService.getLoans(cpf, token);
 	}
 }

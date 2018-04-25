@@ -22,6 +22,7 @@ public class CalendarController {
 
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public Calendar getCalendar() {
+		System.out.println("\n---> CLIENTE REQUISITOU CALENDÁRIO <---");
 		AuthenticationDTO authDto = authService.authenticate();
 
 		CalendarRequest calendarRequest = new CalendarRequest();
@@ -32,6 +33,7 @@ public class CalendarController {
 		calendarDto.setHolidays(holidaysDto);
 
 		Calendar calendar = calendarDto.toEntity();
+		System.out.println("\n---> CALENDÁRIO GERADO E ENVIADO <---");
 		return calendar;
 	}
 }
