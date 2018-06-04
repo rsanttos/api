@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.ufrn.agendaaluno.api.dao.HolidayRepository;
 import br.com.ufrn.agendaaluno.api.dto.HolidayDTO;
-import br.com.ufrn.agendaaluno.api.model.Holiday;
+import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 import br.com.ufrn.agendaaluno.api.request.HolidayRequest;
 
 @Service

@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ufrn.agendaaluno.api.dto.AuthenticationDTO;
 import br.com.ufrn.agendaaluno.api.dto.CalendarDTO;
 import br.com.ufrn.agendaaluno.api.dto.HolidayDTO;
-import br.com.ufrn.agendaaluno.api.model.Calendar;
+import br.com.ufrn.agendaaluno.api.model.calendar.Calendar;
 import br.com.ufrn.agendaaluno.api.request.CalendarRequest;
 import br.com.ufrn.agendaaluno.api.request.HolidayRequest;
 import br.com.ufrn.agendaaluno.api.service.AuthenticationService;
-import br.com.ufrn.agendaaluno.api.service.CalendarService;
 
 @RestController
 public class CalendarController {

@@ -1,4 +1,4 @@
-package br.com.ufrn.agendaaluno.api.model;
+package br.com.ufrn.agendaaluno.api.model.calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Holiday {
+public class Holiday extends Commitment {
 	@Id
 	@GeneratedValue
 	@Column(name = "id_holiday")

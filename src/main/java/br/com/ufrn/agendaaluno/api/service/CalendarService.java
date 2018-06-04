@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.ufrn.agendaaluno.api.dao.CalendarRepository;
 import br.com.ufrn.agendaaluno.api.dao.HolidayRepository;
-import br.com.ufrn.agendaaluno.api.model.Calendar;
-import br.com.ufrn.agendaaluno.api.model.Holiday;
+import br.com.ufrn.agendaaluno.api.model.calendar.Calendar;
+import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 
 @Service
 public class CalendarService {

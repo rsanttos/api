@@ -1,4 +1,4 @@
-package br.com.ufrn.agendaaluno.api.model;
+package br.com.ufrn.agendaaluno.api.model.calendar;
 
 import java.util.List;
 

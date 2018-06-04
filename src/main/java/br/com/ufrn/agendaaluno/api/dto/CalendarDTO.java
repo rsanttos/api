@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
-import br.com.ufrn.agendaaluno.api.model.Calendar;
-import br.com.ufrn.agendaaluno.api.model.Holiday;
+import br.com.ufrn.agendaaluno.api.model.calendar.Calendar;
+import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 
 public class CalendarDTO {
 
