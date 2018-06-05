@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
-import br.com.ufrn.agendaaluno.api.model.calendar.Calendar;
+import br.com.ufrn.agendaaluno.api.model.calendar.GraduateCalendar;
 import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 
 public class CalendarDTO {
@@ -111,9 +111,9 @@ public class CalendarDTO {
 		return gson.toJson(this);
 	}
 
-	public Calendar toEntity() {
+	public GraduateCalendar toEntity() {
 		
-		Calendar calendar = new Calendar();
+		GraduateCalendar calendar = new GraduateCalendar();
 		calendar.setYear(this.ano);
 		calendar.setStartOnlineEnrollment(this.inicio_matricula_online);
 		calendar.setStartPeriod(this.inicio_periodo);

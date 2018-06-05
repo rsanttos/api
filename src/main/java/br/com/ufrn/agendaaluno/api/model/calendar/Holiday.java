@@ -19,7 +19,7 @@ public class Holiday extends Commitment {
 
 	@ManyToOne
 	@JoinColumn(name = "id_calendar")
-	private Calendar calendar;
+	private GraduateCalendar calendar;
 
 	public Holiday() {
 		super();
@@ -31,7 +31,7 @@ public class Holiday extends Commitment {
 		this.description = description;
 	}
 
-	public Holiday(long date, String description, Calendar calendar) {
+	public Holiday(long date, String description, GraduateCalendar calendar) {
 		super();
 		this.date = date;
 		this.description = description;
@@ -62,11 +62,11 @@ public class Holiday extends Commitment {
 		this.description = description;
 	}
 
-	public Calendar getCalendar() {
+	public GraduateCalendar getCalendar() {
 		return calendar;
 	}
 
-	public void setCalendar(Calendar calendar) {
+	public void setCalendar(GraduateCalendar calendar) {
 		this.calendar = calendar;
 	}
 
