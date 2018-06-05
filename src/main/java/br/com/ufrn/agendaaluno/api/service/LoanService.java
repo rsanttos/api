@@ -16,9 +16,9 @@ public class LoanService {
 		LoanDTO[] loansDto = loanRequest.getLoans(cpf, token);
 		List<LoanDTO> loans = new ArrayList<LoanDTO>(); 
 		for(int i = 0 ; i < loansDto.length ; i++) {
-			if(loansDto[i].getData_devolucao() == 0) {
+			//if(loansDto[i].getData_devolucao() == 0) {
 				loans.add(loansDto[i]);
-			}
+			//}
 		}
 		return loans;
 	}
