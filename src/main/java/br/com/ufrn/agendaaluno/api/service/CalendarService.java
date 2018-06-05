@@ -3,7 +3,7 @@ package br.com.ufrn.agendaaluno.api.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ufrn.agendaaluno.api.dao.CalendarRepository;
+import br.com.ufrn.agendaaluno.api.dao.GraduateCalendarRepository;
 import br.com.ufrn.agendaaluno.api.dao.HolidayRepository;
 import br.com.ufrn.agendaaluno.api.model.calendar.GraduateCalendar;
 import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
@@ -12,7 +12,7 @@ import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 public class CalendarService {
 
 	@Autowired
-	private CalendarRepository calendarRepo;
+	private GraduateCalendarRepository calendarRepo;
 	
 	@Autowired
 	private HolidayRepository holidayRepo;
