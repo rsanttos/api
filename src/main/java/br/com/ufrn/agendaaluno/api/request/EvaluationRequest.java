@@ -7,11 +7,11 @@ public class EvaluationRequest extends GenericRequest {
 		
 	}
 	
-	public EvaluationDTO[] getClassEvaluations(String token, int idClass) {
+	public String getClassEvaluations(String token, int idClass) {
 		url = String.format("turma/v0.1/atividades-avaliativas?id-turma=%d", idClass);
 		properties.put("x-api-key", xApiKey);
 		properties.put("Authorization", token);		
 		String resultado = super.objectRequest();
-		return EvaluationDTO.toArrayObject(resultado);
+		return resultado;
 	}
 }

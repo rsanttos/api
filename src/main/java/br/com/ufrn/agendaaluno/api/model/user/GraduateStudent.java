@@ -1,11 +1,17 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
+import java.util.List;
+
+import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
+
 public class GraduateStudent extends Student {
 
 	private int ano_ingresso;
 	private int id_curso;
 	private String nome_curso;
 	private int periodo_ingresso;
+
+	private ClassUFRN[] classes;
 
 	public GraduateStudent() {
 		super();
@@ -49,6 +55,14 @@ public class GraduateStudent extends Student {
 
 	public void setPeriodo_ingresso(int periodo_ingresso) {
 		this.periodo_ingresso = periodo_ingresso;
+	}
+
+	public ClassUFRN[] getClasses() {
+		return classes;
+	}
+
+	public void setClasses(ClassUFRN[] classes) {
+		this.classes = classes;
 	}
 
 }

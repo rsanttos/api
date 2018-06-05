@@ -2,12 +2,7 @@ package br.com.ufrn.agendaaluno.api.dto;
 
 import com.google.gson.Gson;
 
-public class GenericDTO {
-
-	public String toJson() {
-		Gson gson = new Gson();
-		return gson.toJson(this);
-	}
+public abstract class GenericDTO {
 
 	public static String trataJson(String json) {
 		if (json.contains("-")) {

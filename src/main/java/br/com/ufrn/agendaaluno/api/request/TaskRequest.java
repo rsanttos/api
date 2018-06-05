@@ -6,11 +6,11 @@ public class TaskRequest extends GenericRequest {
 	public TaskRequest() {
 		
 	}
-	public TaskDTO[] getClassEvaluations(String token, int idClass) {
+	public String getClassEvaluations(String token, int idClass) {
 		url = String.format("turma/v0.1/tarefas?id-turma=%d", idClass);
 		properties.put("x-api-key", xApiKey);
 		properties.put("Authorization", token);		
 		String resultado = super.objectRequest();
-		return TaskDTO.toArrayObject(resultado);
+		return resultado;
 	}
 }
