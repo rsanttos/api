@@ -17,38 +17,38 @@ import br.com.ufrn.agendaaluno.api.service.TaskService;
 
 @RestController
 public class StudentController {
-		
+
 	@Autowired
 	private GraduateStudentService graduateStudentService;
-	
+
 	@Autowired
 	private ClassService classService;
-	
+
 	@Autowired
 	private TaskService taskService;
-	
+
 	@Autowired
 	private EvaluationService evaluationService;
 
 	@RequestMapping(value = "/student/graduate/{token}", method = RequestMethod.GET)
 	public GraduateStudent getGraduateStudentLoggedIn(@PathVariable String token) {
-		System.out.println("\n---> CLIENTE REQUISITOU DADOS DO USUÁRIO <---");
-		System.out.println("---> INFORMAÇÕES DO ALUNO <---");
-		System.out.println("---> TAREFAS <---");
-		System.out.println("---> AVALIAÇÕES <---");
+		System.out.println("*************************************************************************************");
+		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS ALUNO <---");
+		System.out.println("---> OBTENDO INFORMAÇÕES DO USUÁRIO LOGADO NO SIGAA <---");
+		System.out.println("---> OBTENDO INFORMAÇÕES DO DISCENTE <---");
 		GraduateStudent graduateStudent = graduateStudentService.getStudentLoggedIn(token);
+		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
 		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, graduateStudent.getId_discente());
-		
 		graduateStudent.setClasses(studentClasses);
-		
-		for(int i = 0 ; i < graduateStudent.getClasses().length ; i++) {
+		System.out.println("---> OBTENDO TAREFAS DO DISCENTE <---");
+		for (int i = 0; i < graduateStudent.getClasses().length; i++) {
 			ClassUFRN c = graduateStudent.getClasses()[i];
 			Task[] tasks = taskService.getClassTasks(token, c.getId_turma(), c.getNome_componente());
-			c.setTasks(tasks);	
+			c.setTasks(tasks);
 			graduateStudent.getClasses()[i] = c;
-		}		
-
-		for(int i = 0 ; i < graduateStudent.getClasses().length ; i++) {
+		}
+		System.out.println("---> OBTENDO AVALIAÇÕES DO DISCENTE <---");
+		for (int i = 0; i < graduateStudent.getClasses().length; i++) {
 			ClassUFRN c = graduateStudent.getClasses()[i];
 			Evaluation[] evaluations = evaluationService.getClassEvaluations(token, c.getId_turma(),
 					c.getNome_componente());
@@ -56,6 +56,15 @@ public class StudentController {
 			graduateStudent.getClasses()[i] = c;
 		}
 		
+		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
+		System.out.println("- DADOS DO USUÁRIO NO SIGAA");
+		System.out.println("- DADOS DO DISCENTE NO SIGAA");
+		System.out.println("- DADOS DAS TURMAS DO DISCENTE NO SIGAA");
+		System.out.println("- DADOS DAS TAREFAS DO DISCENTE NO SIGAA");
+		System.out.println("- DADOS DAS AVALIAÇÕES DO DISCENTE NO SIGAA");
+		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
+		System.out.println("*************************************************************************************");
+		
 		return graduateStudent;
-	}	
+	}
 }
