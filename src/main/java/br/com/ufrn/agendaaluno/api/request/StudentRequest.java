@@ -3,21 +3,21 @@ package br.com.ufrn.agendaaluno.api.request;
 import br.com.ufrn.agendaaluno.api.dto.StudentDTO;
 
 /**
- * Classe responsável por obter as informaçõs de um aluno cadastrado no SIGAA
+ * Classe responsável por obter as informaçõs de um aluno cadastrado no SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class StudentRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public StudentRequest() {
 	}
 
 	/**
 	 * Método responsável por obter as informações do aluno que acabou de realizar
-	 * login na aplicação
+	 * login na aplicação.
 	 * 
 	 * @param token
 	 * @return StudentDTO
@@ -33,7 +33,7 @@ public class StudentRequest extends GenericRequest {
 	}
 
 	/**
-	 * Método responsável por obter as informações de um usuário no SIGAA
+	 * Método responsável por obter as informações de um usuário no SIGAA.
 	 * 
 	 * @param token
 	 * @return StudentDTO
@@ -47,7 +47,7 @@ public class StudentRequest extends GenericRequest {
 	}
 
 	/**
-	 * Método responsável por obter as informações de um aluno no SIGAA
+	 * Método responsável por obter as informações de um aluno no SIGAA.
 	 * 
 	 * @param token
 	 * @return StudentDTO

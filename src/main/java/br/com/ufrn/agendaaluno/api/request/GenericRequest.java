@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Classe genérica para realização de requisições a serviços externos ao projeto
+ * Classe genérica para realização de requisições a serviços externos ao projeto.
  * 
  * @author ramonsantos
  *
@@ -31,7 +31,7 @@ public class GenericRequest {
 
 	/**
 	 * Método responsável pela realização de uma requisição que irá retornar um json
-	 * contendo um objeto
+	 * contendo um objeto.
 	 * 
 	 * @return String
 	 */
@@ -95,7 +95,7 @@ public class GenericRequest {
 
 	/**
 	 * Método responsável pela realização de uma requisição que irá retornar um json
-	 * contendo um array de objeto
+	 * contendo um array de objeto.
 	 * 
 	 * @return
 	 */

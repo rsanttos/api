@@ -4,14 +4,14 @@ import br.com.ufrn.agendaaluno.api.dto.LoanDTO;
 
 /**
  * Classe responsável por obter informações sobre empréstimos de um usuário nas
- * bibliotecas da UFRN
+ * bibliotecas da UFRN.
  * 
  * @author ramonsantos
  *
  */
 public class LoanRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public LoanRequest() {
 		;
@@ -19,7 +19,7 @@ public class LoanRequest extends GenericRequest {
 
 	/**
 	 * Método responsável pela requisição dos empréstimos realizados nas bibliotecas
-	 * da UFRN por um usuário do SIGAA
+	 * da UFRN por um usuário do SIGAA.
 	 * 
 	 * @param cpf
 	 * @param token

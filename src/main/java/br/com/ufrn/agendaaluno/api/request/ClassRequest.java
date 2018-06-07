@@ -1,14 +1,14 @@
 package br.com.ufrn.agendaaluno.api.request;
 
 /**
- * Classe responsável pela requisição de turmas à API do SIGAA
+ * Classe responsável pela requisição de turmas à API do SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class ClassRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public ClassRequest() {
 
@@ -16,7 +16,7 @@ public class ClassRequest extends GenericRequest {
 
 	/**
 	 * Método responsável por obter as turmas em que um aluno está participando da
-	 * API do SIGAA
+	 * API do SIGAA.
 	 * 
 	 * @param token
 	 * @param idStudent

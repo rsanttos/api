@@ -4,14 +4,14 @@ import br.com.ufrn.agendaaluno.api.dto.RegistrationDTO;
 
 /**
  * Classe responsável por requisitar as solicitações de matrícula de um usuário
- * cadastrado no SIGAA
+ * cadastrado no SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class RegistrationRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 * 
 	 * @param idStudent
 	 */
@@ -21,7 +21,7 @@ public class RegistrationRequest extends GenericRequest {
 
 	/**
 	 * Método responsável por obter as solicitações de matrícula de um usuário
-	 * cadastrado no SIGAA
+	 * cadastrado no SIGAA.
 	 * 
 	 * @return RegistrationDTO[]
 	 */ 

@@ -2,21 +2,21 @@ package br.com.ufrn.agendaaluno.api.request;
 
 /**
  * Classe responsável pela requisição de informações de um aluno de pós
- * graduação na API do SIGAA
+ * graduação na API do SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class GraduateStudentRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public GraduateStudentRequest() {
 
 	}
 
 	/**
-	 * Método responsável por obter as informações de um usuário do SIGAA
+	 * Método responsável por obter as informações de um usuário do SIGAA.
 	 * 
 	 * @param token
 	 * @return String
@@ -30,7 +30,7 @@ public class GraduateStudentRequest extends GenericRequest {
 	}
 
 	/**
-	 * Método responsável por obter as informações de um aluno do SIGAA
+	 * Método responsável por obter as informações de um aluno do SIGAA.
 	 * 
 	 * @param token
 	 * @param cpfCnpj

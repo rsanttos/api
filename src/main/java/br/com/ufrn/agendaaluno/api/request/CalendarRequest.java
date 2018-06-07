@@ -3,21 +3,21 @@ package br.com.ufrn.agendaaluno.api.request;
 import br.com.ufrn.agendaaluno.api.dto.CalendarDTO;
 
 /**
- * Classe responsável pela requisição do calendário acadêmico à API do SIGAA
+ * Classe responsável pela requisição do calendário acadêmico à API do SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class CalendarRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public CalendarRequest() {
 		url = "calendario/v0.1/calendarios/125046027";
 	}
 
 	/**
-	 * Método responsável pela requisição de um calendário à API do SIGAA
+	 * Método responsável pela requisição de um calendário à API do SIGAA.
 	 * 
 	 * @param token
 	 * @return CalendarDTO

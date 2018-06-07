@@ -2,21 +2,21 @@ package br.com.ufrn.agendaaluno.api.request;
 
 /**
  * Classe responsável pela requisição das avaliações de uma determinada turma
- * que estão cadastradas no SIGAA
+ * que estão cadastradas no SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class EvaluationRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public EvaluationRequest() {
 
 	}
 
 	/**
-	 * Método responsável por obter as avaliações cadastradas em uma turma no SIGAA
+	 * Método responsável por obter as avaliações cadastradas em uma turma no SIGAA.
 	 * 
 	 * @param token
 	 * @param idClass

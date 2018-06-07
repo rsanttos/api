@@ -2,14 +2,14 @@ package br.com.ufrn.agendaaluno.api.request;
 
 /**
  * Classe responsável por requisitar as tarefas cadastradas em uma turma virtual
- * do SIGAA
+ * do SIGAA.
  * 
  * @author ramonsantos
  *
  */
 public class TaskRequest extends GenericRequest {
 	/**
-	 * Construtor da classe
+	 * Construtor da classe.
 	 */
 	public TaskRequest() {
 
@@ -17,7 +17,7 @@ public class TaskRequest extends GenericRequest {
 
 	/**
 	 * Método responsável por obter as tarefas cadastradas em uma determinada turma
-	 * virtual
+	 * virtual.
 	 * 
 	 * @param token
 	 * @param idClass
