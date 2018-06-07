@@ -21,7 +21,7 @@ public class TaskService {
 
 	public Task[] getClassTasks(String token, int idClass, String nomeComponente) {
 		TaskRequest taskRequest = new TaskRequest();
-		String tasksStr = taskRequest.getClassEvaluations(token, idClass);
+		String tasksStr = taskRequest.getClassTasks(token, idClass);
 		Task[] tasks = TaskDTO.toArrayObject(tasksStr);
 		if(tasks != null) {
 			for(int i = 0 ; i < tasks.length ; i++) {
