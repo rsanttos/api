@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ufrn.agendaaluno.api.dto.AuthenticationDTO;
 import br.com.ufrn.agendaaluno.api.dto.CalendarDTO;
 import br.com.ufrn.agendaaluno.api.dto.HolidayDTO;
-import br.com.ufrn.agendaaluno.api.model.Calendar;
+import br.com.ufrn.agendaaluno.api.model.calendar.GraduateCalendar;
 import br.com.ufrn.agendaaluno.api.request.CalendarRequest;
 import br.com.ufrn.agendaaluno.api.request.HolidayRequest;
 import br.com.ufrn.agendaaluno.api.service.AuthenticationService;
-import br.com.ufrn.agendaaluno.api.service.CalendarService;
 
 @RestController
 public class CalendarController {
@@ -21,7 +20,7 @@ public class CalendarController {
 	private AuthenticationService authService;
 
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-	public Calendar getCalendar() {
+	public GraduateCalendar getCalendar() {
 		System.out.println("\n---> CLIENTE REQUISITOU CALENDÁRIO <---");
 		AuthenticationDTO authDto = authService.authenticate();
 
@@ -32,7 +31,7 @@ public class CalendarController {
 		HolidayDTO[] holidaysDto = holidayRequest.getHolidays(authDto.getAccess_token());
 		calendarDto.setHolidays(holidaysDto);
 
-		Calendar calendar = calendarDto.toEntity();
+		GraduateCalendar calendar = calendarDto.toEntity();
 		System.out.println("\n---> CALENDÁRIO GERADO E ENVIADO <---");
 		return calendar;
 	}

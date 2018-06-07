@@ -1,4 +1,4 @@
-package br.com.ufrn.agendaaluno.api.model;
+package br.com.ufrn.agendaaluno.api.model.calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Holiday {
+public class Holiday extends Commitment {
 	@Id
 	@GeneratedValue
 	@Column(name = "id_holiday")
@@ -19,7 +19,7 @@ public class Holiday {
 
 	@ManyToOne
 	@JoinColumn(name = "id_calendar")
-	private Calendar calendar;
+	private GraduateCalendar calendar;
 
 	public Holiday() {
 		super();
@@ -31,7 +31,7 @@ public class Holiday {
 		this.description = description;
 	}
 
-	public Holiday(long date, String description, Calendar calendar) {
+	public Holiday(long date, String description, GraduateCalendar calendar) {
 		super();
 		this.date = date;
 		this.description = description;
@@ -62,11 +62,11 @@ public class Holiday {
 		this.description = description;
 	}
 
-	public Calendar getCalendar() {
+	public GraduateCalendar getCalendar() {
 		return calendar;
 	}
 
-	public void setCalendar(Calendar calendar) {
+	public void setCalendar(GraduateCalendar calendar) {
 		this.calendar = calendar;
 	}
 

@@ -2,7 +2,7 @@ package br.com.ufrn.agendaaluno.api.dto;
 
 import com.google.gson.Gson;
 
-import br.com.ufrn.agendaaluno.api.model.Holiday;
+import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 
 public class HolidayDTO {
 	private long data_feriado;

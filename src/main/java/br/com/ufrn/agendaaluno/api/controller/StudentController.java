@@ -1,27 +1,25 @@
 package br.com.ufrn.agendaaluno.api.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.ufrn.agendaaluno.api.dto.ClassDTO;
-import br.com.ufrn.agendaaluno.api.dto.EvaluationDTO;
-import br.com.ufrn.agendaaluno.api.dto.StudentDTO;
-import br.com.ufrn.agendaaluno.api.dto.TaskDTO;
+import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
+import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
+import br.com.ufrn.agendaaluno.api.model.classes.Task;
+import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
 import br.com.ufrn.agendaaluno.api.service.ClassService;
 import br.com.ufrn.agendaaluno.api.service.EvaluationService;
-import br.com.ufrn.agendaaluno.api.service.StudentService;
+import br.com.ufrn.agendaaluno.api.service.GraduateStudentService;
 import br.com.ufrn.agendaaluno.api.service.TaskService;
 
 @RestController
 public class StudentController {
-	
+		
 	@Autowired
-	private StudentService studentService;
+	private GraduateStudentService graduateStudentService;
 	
 	@Autowired
 	private ClassService classService;
@@ -32,25 +30,32 @@ public class StudentController {
 	@Autowired
 	private EvaluationService evaluationService;
 
-	@RequestMapping(value = "/student/{token}", method = RequestMethod.GET)
-	public StudentDTO getStudentLoggedIn(@PathVariable String token) {
+	@RequestMapping(value = "/student/graduate/{token}", method = RequestMethod.GET)
+	public GraduateStudent getGraduateStudentLoggedIn(@PathVariable String token) {
 		System.out.println("\n---> CLIENTE REQUISITOU DADOS DO USUÁRIO <---");
 		System.out.println("---> INFORMAÇÕES DO ALUNO <---");
 		System.out.println("---> TAREFAS <---");
 		System.out.println("---> AVALIAÇÕES <---");
-		StudentDTO student = studentService.getStudentLoggedIn(token);
-		List<ClassDTO> studentClasses = classService.getActiveStudentClasses(token, student.getId_discente());
-		student.setClasses(studentClasses);
-		for(ClassDTO classDto : student.getClasses()) {
-			TaskDTO[] tasks = taskService.getClassTasks(token, classDto.getId_turma(), classDto.getNome_componente());
-			classDto.setTasks(tasks);
+		GraduateStudent graduateStudent = graduateStudentService.getStudentLoggedIn(token);
+		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, graduateStudent.getId_discente());
+		
+		graduateStudent.setClasses(studentClasses);
+		
+		for(int i = 0 ; i < graduateStudent.getClasses().length ; i++) {
+			ClassUFRN c = graduateStudent.getClasses()[i];
+			Task[] tasks = taskService.getClassTasks(token, c.getId_turma(), c.getNome_componente());
+			c.setTasks(tasks);	
+			graduateStudent.getClasses()[i] = c;
+		}		
+
+		for(int i = 0 ; i < graduateStudent.getClasses().length ; i++) {
+			ClassUFRN c = graduateStudent.getClasses()[i];
+			Evaluation[] evaluations = evaluationService.getClassEvaluations(token, c.getId_turma(),
+					c.getNome_componente());
+			c.setEvaluations(evaluations);
+			graduateStudent.getClasses()[i] = c;
 		}
-		for(ClassDTO classDto : student.getClasses()) {
-			EvaluationDTO[] evaluations = evaluationService.getClassEvaluations(token, classDto.getId_turma(), classDto.getNome_componente());
-			classDto.setEvaluations(evaluations);
-		}
-		System.out.println("\n---> INFORMAÇÕES GERADAS E ENVIADAS <---");
-		return student;
-	}
-	
+		
+		return graduateStudent;
+	}	
 }

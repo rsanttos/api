@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import br.com.ufrn.agendaaluno.api.dto.LoanDTO;
-import br.com.ufrn.agendaaluno.api.model.Loan;
 import br.com.ufrn.agendaaluno.api.request.LoanRequest;
 
 @Service
