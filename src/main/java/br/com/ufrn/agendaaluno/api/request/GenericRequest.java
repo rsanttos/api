@@ -28,6 +28,7 @@ public class GenericRequest {
 	protected String requestContent = "";
 	protected String xApiKey = "EGaxX1G86pwPBmmyVtACA23P02uS8ZXJXIX5FWnG";
 	protected Map<String, String> properties = new HashMap<String, String>();
+	protected int codigoResposta = -1;
 
 	/**
 	 * Método responsável pela realização de uma requisição que irá retornar um json
@@ -63,6 +64,7 @@ public class GenericRequest {
 			}
 
 			urlConnection.connect();
+			codigoResposta = urlConnection.getResponseCode();
 			InputStream inputStream = urlConnection.getInputStream();
 			reader = new BufferedReader(new InputStreamReader(inputStream));
 			String linha;
@@ -162,6 +164,14 @@ public class GenericRequest {
 
 	public void setFullAddress(String fullAddress) {
 		this.fullAddress = fullAddress;
+	}
+
+	public int getCodigoResposta() {
+		return codigoResposta;
+	}
+
+	public void setCodigoResposta(int codigoResposta) {
+		this.codigoResposta = codigoResposta;
 	}
 
 }
