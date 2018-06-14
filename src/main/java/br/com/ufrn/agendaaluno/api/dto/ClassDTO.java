@@ -1,6 +1,12 @@
 package br.com.ufrn.agendaaluno.api.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
+
+import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
+import br.com.ufrn.agendaaluno.api.model.classes.Task;
 
 public class ClassDTO {
 	private int id_turma;
@@ -10,8 +16,8 @@ public class ClassDTO {
 	private String codigo_componente;
 	private int id_situacao_solicitacao;
 	
-	private TaskDTO[] tasks;
-	private EvaluationDTO[] evaluations;
+	private Task[] tasks;
+	private Evaluation[] evaluations;
 
 	public ClassDTO() {
 		super();
@@ -65,19 +71,19 @@ public class ClassDTO {
 		this.id_situacao_solicitacao = id_situacao_solicitacao;
 	}
 
-	public TaskDTO[] getTasks() {
+	public Task[] getTasks() {
 		return tasks;
 	}
 
-	public void setTasks(TaskDTO[] tasks) {
+	public void setTasks(Task[] tasks) {
 		this.tasks = tasks;
 	}
 
-	public EvaluationDTO[] getEvaluations() {
+	public Evaluation[] getEvaluations() {
 		return evaluations;
 	}
 
-	public void setEvaluations(EvaluationDTO[] evaluations) {
+	public void setEvaluations(Evaluation[] evaluations) {
 		this.evaluations = evaluations;
 	}
 
@@ -96,6 +102,15 @@ public class ClassDTO {
 		Gson gson = new Gson();
 		json = trataJson(json);
 		return gson.fromJson(json, ClassDTO[].class);
+	}
+	
+	public static List<ClassDTO> staticToDynamic(ClassDTO[] statico){
+		List<ClassDTO> dinamico = new ArrayList<ClassDTO>();
+		for(int i = 0 ; i < statico.length ; i++) {
+			dinamico.add(statico[i]);
+		}
+		
+		return dinamico;
 	}
 
 	public static String trataJson(String json) {
