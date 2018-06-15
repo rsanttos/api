@@ -11,7 +11,8 @@ public class EvaluationService {
 	public Evaluation[] getClassEvaluations(String token, int idClass, String nomeComponente) {
 		EvaluationRequest evaluationRequest = new EvaluationRequest();
 		String evaluationsStr = evaluationRequest.getClassEvaluations(token, idClass);
-		Evaluation[] evaluations = EvaluationDTO.toArrayObject(evaluationsStr);
+		EvaluationDTO eDto = new EvaluationDTO();
+		Evaluation[] evaluations = eDto.toArrayObject(evaluationsStr);
 		for(int i = 0 ; i < evaluations.length ; i++) {
 			evaluations[i].setNomeComponente(nomeComponente);
 		}

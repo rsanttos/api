@@ -8,4 +8,10 @@ public class ProfessorFactory implements UserFactory {
 		return new Professor();
 	}
 
+	@Override
+	public User createUserFromJson(String json) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

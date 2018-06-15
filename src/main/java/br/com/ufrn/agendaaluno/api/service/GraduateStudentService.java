@@ -15,12 +15,11 @@ public class GraduateStudentService {
 		String userStr = graduateStudentRequest.getUserSIGAA(token);	
 		System.out.println(userStr);
 		GraduateStudentFactory gsFactory = new GraduateStudentFactory();
-		GraduateStudent student = (GraduateStudent) gsFactory.createUser();
-		student = GraduateStudentDTO.toObject(userStr);
+		GraduateStudent student = (GraduateStudent) gsFactory.createUserFromJson(userStr);
 		
 		String studentStr = graduateStudentRequest.getStudentSIGAA(token, student.getCpf_cnpj());
 		System.out.println(studentStr);
-		student = GraduateStudentDTO.toObject(studentStr);
+		student = (GraduateStudent) gsFactory.createUserFromJson(studentStr);
 		
 		return student;
 	}
