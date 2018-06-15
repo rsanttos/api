@@ -8,6 +8,13 @@ import com.google.gson.Gson;
 import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
 import br.com.ufrn.agendaaluno.api.model.classes.Task;
 
+/**
+ * DTO responsável por gerenciar dados de turmas recebidos pela API do
+ * SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class ClassDTO {
 	private int id_turma;
 	private String local;

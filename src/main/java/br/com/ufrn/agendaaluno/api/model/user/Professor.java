@@ -1,5 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
+/**
+ * Classe de modelo para professores
+ * 
+ * @author ramonsantos
+ *
+ */
 public class Professor extends User {
 	private String nome;
 	private String cargo;

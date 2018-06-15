@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
+/**
+ * DTO responsável por gerenciar dados de alunos recebidos pela API do SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class StudentDTO {
 
 	private int ano_ingresso;

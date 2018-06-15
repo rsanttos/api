@@ -13,12 +13,24 @@ import br.com.ufrn.agendaaluno.api.request.CalendarRequest;
 import br.com.ufrn.agendaaluno.api.request.HolidayRequest;
 import br.com.ufrn.agendaaluno.api.service.AuthenticationService;
 
+/**
+ * Classe responsável por gerenciar as requisições relacioadas ao calendário
+ * acadêmico.
+ * 
+ * @author ramonsantos
+ *
+ */
 @RestController
 public class CalendarController {
-	
+
 	@Autowired
 	private AuthenticationService authService;
 
+	/**
+	 * Método responsável por disponibilizad o calendário acadêmico.
+	 * 
+	 * @return GraduateCalendar
+	 */
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public GraduateCalendar getCalendar() {
 		System.out.println("\n---> CLIENTE REQUISITOU CALENDÁRIO <---");

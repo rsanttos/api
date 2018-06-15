@@ -1,7 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
-import br.com.ufrn.agendaaluno.api.dto.GraduateStudentDTO;
-
+/**
+ * Interface para criação de usuários
+ * 
+ * @author ramonsantos
+ *
+ */
 public interface UserFactory {
 
 	public User createUser();

@@ -1,8 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.classes;
 
-import br.com.ufrn.agendaaluno.api.dto.EvaluationDTO;
-import br.com.ufrn.agendaaluno.api.dto.TaskDTO;
-
+/**
+ * Classe para entidade de turmas da UFRN
+ * 
+ * @author ramonsantos
+ *
+ */
 public class ClassUFRN {
 	private int id_turma;
 	private String local;

@@ -1,5 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.notifications;
 
+/**
+ * Classe para criação de notificações para estudantes
+ * 
+ * @author ramonsantos
+ *
+ */
 public class UndergraduateNotificationFactory implements NotificationFactory {
 
 	@Override

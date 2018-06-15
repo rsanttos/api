@@ -4,6 +4,13 @@ import java.util.List;
 
 import br.com.ufrn.agendaaluno.api.model.calendar.Commitment;
 
+/**
+ * Classe para implementar o padrão Strategy para o Assistente Virtual para
+ * professores
+ * 
+ * @author ramonsantos
+ *
+ */
 public class ProfessorAssistent implements AssistentStrategy {
 
 	@Override

@@ -1,5 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.classes;
 
+/**
+ * Classe para entidade de avaliações cadastradas em turmas da UFRN
+ * 
+ * @author ramonsantos
+ *
+ */
 public class Evaluation {
 
 	private int id_avaliacao;

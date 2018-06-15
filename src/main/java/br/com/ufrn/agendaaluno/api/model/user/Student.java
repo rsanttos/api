@@ -1,5 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
+/**
+ * Classe para criação de alunos
+ * 
+ * @author ramonsantos
+ *
+ */
 public abstract class Student extends User {
 
 	private int id_discente;

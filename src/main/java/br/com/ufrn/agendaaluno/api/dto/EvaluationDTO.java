@@ -4,6 +4,13 @@ import com.google.gson.Gson;
 
 import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
 
+/**
+ * DTO responsável por gerenciar dados de avaliações recebidos pela API do
+ * SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class EvaluationDTO extends GenericDTO {
 
 

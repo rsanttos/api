@@ -2,6 +2,13 @@ package br.com.ufrn.agendaaluno.api.dto;
 
 import com.google.gson.Gson;
 
+/**
+ * DTO responsável por gerenciar dados de empréstimos recebidos pela API do
+ * SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class LoanDTO {
 	private String autor;
 	private String cpf_cnpj_usuario;

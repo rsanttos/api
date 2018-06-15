@@ -6,7 +6,13 @@ import br.com.ufrn.agendaaluno.api.dto.GraduateStudentDTO;
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudentFactory;
 import br.com.ufrn.agendaaluno.api.request.GraduateStudentRequest;
-
+/**
+ * Classe de serviço responsável pela intermediação entre os controllers e as
+ * requisições
+ * 
+ * @author ramonsantos
+ *
+ */
 @Service
 public class GraduateStudentService {
 

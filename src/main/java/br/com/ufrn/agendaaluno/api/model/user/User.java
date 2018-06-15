@@ -1,5 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
+/**
+ * Classe de modelo para usuários
+ * 
+ * @author ramonsantos
+ *
+ */
 public abstract class User {
 	private String cpf_cnpj;
 

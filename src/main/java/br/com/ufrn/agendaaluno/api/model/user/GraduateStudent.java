@@ -1,9 +1,13 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
-import java.util.List;
-
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
+/**
+ * Classe de modelo para alunos
+ * 
+ * @author ramonsantos
+ *
+ */
 public class GraduateStudent extends Student {
 
 	private int ano_ingresso;

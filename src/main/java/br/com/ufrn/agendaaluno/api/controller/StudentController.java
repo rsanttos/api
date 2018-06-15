@@ -15,6 +15,12 @@ import br.com.ufrn.agendaaluno.api.service.EvaluationService;
 import br.com.ufrn.agendaaluno.api.service.GraduateStudentService;
 import br.com.ufrn.agendaaluno.api.service.TaskService;
 
+/**
+ * Classe responsável por gerenciar as requisições relacionadas à alunos.
+ * 
+ * @author ramonsantos
+ *
+ */
 @RestController
 public class StudentController {
 
@@ -30,6 +36,12 @@ public class StudentController {
 	@Autowired
 	private EvaluationService evaluationService;
 
+	/**
+	 * Método responsável por disponibilizar as informações do aluno logado.
+	 * 
+	 * @param token
+	 * @return
+	 */
 	@RequestMapping(value = "/student/graduate/{token}", method = RequestMethod.GET)
 	public GraduateStudent getGraduateStudentLoggedIn(@PathVariable String token) {
 		System.out.println("*************************************************************************************");
@@ -55,7 +67,7 @@ public class StudentController {
 			c.setEvaluations(evaluations);
 			graduateStudent.getClasses()[i] = c;
 		}
-		
+
 		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
 		System.out.println("- DADOS DO USUÁRIO NO SIGAA");
 		System.out.println("- DADOS DO DISCENTE NO SIGAA");
@@ -64,7 +76,7 @@ public class StudentController {
 		System.out.println("- DADOS DAS AVALIAÇÕES DO DISCENTE NO SIGAA");
 		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
 		System.out.println("*************************************************************************************");
-		
+
 		return graduateStudent;
 	}
 }

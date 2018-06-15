@@ -2,6 +2,13 @@ package br.com.ufrn.agendaaluno.api.dto;
 
 import com.google.gson.Gson;
 
+/**
+ * DTO responsável por gerenciar dados de matrículas recebidos pela API do
+ * SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class RegistrationDTO {
 	private int id_discente;
 	private int id_situacao_solicitacao;
@@ -51,7 +58,7 @@ public class RegistrationDTO {
 		json = trataJson(json);
 		return gson.fromJson(json, RegistrationDTO[].class);
 	}
-	
+
 	public static String trataJson(String json) {
 		if (json.contains("-")) {
 			return json.replace("-", "_");

@@ -7,7 +7,13 @@ import br.com.ufrn.agendaaluno.api.dao.GraduateCalendarRepository;
 import br.com.ufrn.agendaaluno.api.dao.HolidayRepository;
 import br.com.ufrn.agendaaluno.api.model.calendar.GraduateCalendar;
 import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
-
+/**
+ * Classe de serviço responsável pela intermediação entre os controllers e as
+ * requisições
+ * 
+ * @author ramonsantos
+ *
+ */
 @Service
 public class CalendarService {
 

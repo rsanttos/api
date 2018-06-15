@@ -4,6 +4,12 @@ import com.google.gson.Gson;
 
 import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 
+/**
+ * DTO responsável por gerenciar dados de feriados recebidos pela API do SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class HolidayDTO {
 	private long data_feriado;
 	private String descricao;

@@ -4,8 +4,14 @@ import com.google.gson.Gson;
 
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
 
+/**
+ * DTO responsável por gerenciar dados de alunos recebidos pela API do SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class GraduateStudentDTO extends GenericDTO {
-	
+
 	public static GraduateStudent toObject(String json) {
 		Gson gson = new Gson();
 

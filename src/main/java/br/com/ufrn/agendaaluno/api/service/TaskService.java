@@ -6,25 +6,32 @@ import br.com.ufrn.agendaaluno.api.dto.TaskDTO;
 import br.com.ufrn.agendaaluno.api.model.classes.Task;
 import br.com.ufrn.agendaaluno.api.request.TaskRequest;
 
+/**
+ * Classe de serviço responsável pela intermediação entre os controllers e as
+ * requisições
+ * 
+ * @author ramonsantos
+ *
+ */
 @Service
 public class TaskService {
-//
-//	public TaskDTO[] getClassTasks(String token, int idClass, String nomeComponente) {
-//		TaskRequest taskRequest = new TaskRequest();
-//		TaskDTO[] tasks = taskRequest.getClassEvaluations(token, idClass);
-//		for(int i = 0 ; i < tasks.length ; i++) {
-//			tasks[i].setNomeComponente(nomeComponente);
-//		}
-//		return tasks;
-//	}
-	
+	//
+	// public TaskDTO[] getClassTasks(String token, int idClass, String
+	// nomeComponente) {
+	// TaskRequest taskRequest = new TaskRequest();
+	// TaskDTO[] tasks = taskRequest.getClassEvaluations(token, idClass);
+	// for(int i = 0 ; i < tasks.length ; i++) {
+	// tasks[i].setNomeComponente(nomeComponente);
+	// }
+	// return tasks;
+	// }
 
 	public Task[] getClassTasks(String token, int idClass, String nomeComponente) {
 		TaskRequest taskRequest = new TaskRequest();
 		String tasksStr = taskRequest.getClassTasks(token, idClass);
 		Task[] tasks = TaskDTO.toArrayObject(tasksStr);
-		if(tasks != null) {
-			for(int i = 0 ; i < tasks.length ; i++) {
+		if (tasks != null) {
+			for (int i = 0; i < tasks.length; i++) {
 				tasks[i].setNomeComponente(nomeComponente);
 			}
 		}

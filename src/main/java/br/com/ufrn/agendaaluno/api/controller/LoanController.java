@@ -11,12 +11,26 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ufrn.agendaaluno.api.dto.LoanDTO;
 import br.com.ufrn.agendaaluno.api.service.LoanService;
 
+/**
+ * Classe responsável por gerenciar as requisições relacionadas à empréstimos.
+ * 
+ * @author ramonsantos
+ *
+ */
 @RestController
 public class LoanController {
 
 	@Autowired
-	private LoanService loanService;	
+	private LoanService loanService;
 
+	/**
+	 * Método responspavel pela disponibilização dos empréstimos de um usuário no
+	 * SIGAA.
+	 * 
+	 * @param cpf
+	 * @param token
+	 * @return List<LoanDTO>
+	 */
 	@RequestMapping(value = "/student/loans/{cpf}/{token}", method = RequestMethod.GET)
 	public List<LoanDTO> getLoans(@PathVariable String cpf, @PathVariable String token) {
 		System.out.println("\n---> CLIENTE REQUISITOU EMPRÉSTIMOS DO USUÁRIO <---");

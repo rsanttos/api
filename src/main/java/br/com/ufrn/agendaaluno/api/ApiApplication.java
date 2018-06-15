@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Bean;
 import br.com.ufrn.agendaaluno.api.service.AuthenticationService;
 import br.com.ufrn.agendaaluno.api.service.CalendarService;
 
+/**
+ * Classe responsável pela execução do projeto.
+ * @author ramonsantos
+ *
+ */
 @SpringBootApplication
 public class ApiApplication {
 
@@ -18,6 +23,10 @@ public class ApiApplication {
 	@Autowired
 	private CalendarService calendarService;
 
+	/**
+	 * Método principal para execução.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
 	}

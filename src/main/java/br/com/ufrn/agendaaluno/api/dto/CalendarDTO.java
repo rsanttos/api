@@ -8,6 +8,13 @@ import com.google.gson.Gson;
 import br.com.ufrn.agendaaluno.api.model.calendar.GraduateCalendar;
 import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
 
+/**
+ * DTO responsável por gerenciar dados de calendário recebidos pela API do
+ * SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class CalendarDTO {
 
 	private int ano;
@@ -19,7 +26,7 @@ public class CalendarDTO {
 	private long fim_matricula_online;
 	private long fim_periodo;
 	private long fim_rematricula;
-	
+
 	private HolidayDTO[] holidays;
 
 	public CalendarDTO() {
@@ -112,7 +119,7 @@ public class CalendarDTO {
 	}
 
 	public GraduateCalendar toEntity() {
-		
+
 		GraduateCalendar calendar = new GraduateCalendar();
 		calendar.setYear(this.ano);
 		calendar.setStartOnlineEnrollment(this.inicio_matricula_online);
@@ -123,7 +130,7 @@ public class CalendarDTO {
 		calendar.setEndOnlineEnrollment(this.fim_matricula_online);
 		calendar.setEndPeriod(this.fim_periodo);
 		calendar.setEndReEnrollment(this.fim_rematricula);
-		
+
 		List<Holiday> hs = new ArrayList<Holiday>();
 		for (int i = 0; i < this.holidays.length; i++) {
 			hs.add(this.holidays[i].toEntity());

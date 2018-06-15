@@ -7,7 +7,13 @@ import org.springframework.stereotype.Service;
 
 import br.com.ufrn.agendaaluno.api.dto.LoanDTO;
 import br.com.ufrn.agendaaluno.api.request.LoanRequest;
-
+/**
+ * Classe de serviço responsável pela intermediação entre os controllers e as
+ * requisições
+ * 
+ * @author ramonsantos
+ *
+ */
 @Service
 public class LoanService {
 	public List<LoanDTO> getLoans(String cpf, String token) {

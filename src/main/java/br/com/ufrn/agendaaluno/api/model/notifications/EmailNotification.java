@@ -1,7 +1,13 @@
 package br.com.ufrn.agendaaluno.api.model.notifications;
 
+/**
+ * Classe para notificações por e-mail
+ * 
+ * @author ramonsantos
+ *
+ */
 public class EmailNotification extends Notification {
-	
+
 	private String emailAdress;
 
 	@Override

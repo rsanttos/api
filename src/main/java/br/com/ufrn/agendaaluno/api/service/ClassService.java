@@ -6,7 +6,13 @@ import br.com.ufrn.agendaaluno.api.dto.ClassDTO;
 import br.com.ufrn.agendaaluno.api.dto.ClassUFRNDTO;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 import br.com.ufrn.agendaaluno.api.request.ClassRequest;
-
+/**
+ * Classe de serviço responsável pela intermediação entre os controllers e as
+ * requisições
+ * 
+ * @author ramonsantos
+ *
+ */
 @Service
 public class ClassService {
 

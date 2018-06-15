@@ -4,6 +4,13 @@ import com.google.gson.Gson;
 
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
+/**
+ * DTO responsável por gerenciar dados de turmas da UFRN recebidos pela API do
+ * SIGAA.
+ * 
+ * @author ramonsantos
+ *
+ */
 public class ClassUFRNDTO extends GenericDTO {
 
 	public static ClassUFRN toObject(String json) {
