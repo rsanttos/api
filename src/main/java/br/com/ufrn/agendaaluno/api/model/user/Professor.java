@@ -5,6 +5,8 @@ public class Professor extends User {
 	private String cargo;
 	private String siape;
 	private String unidade;
+	private long data_admissao;
+	private long id_docente;
 
 	public Professor() {
 		super();
@@ -40,6 +42,22 @@ public class Professor extends User {
 
 	public void setUnidade(String unidade) {
 		this.unidade = unidade;
+	}
+
+	public long getData_admissao() {
+		return data_admissao;
+	}
+
+	public void setData_admissao(long data_admissao) {
+		this.data_admissao = data_admissao;
+	}
+
+	public long getId_docente() {
+		return id_docente;
+	}
+
+	public void setId_docente(long id_docente) {
+		this.id_docente = id_docente;
 	}
 
 }
