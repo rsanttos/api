@@ -23,8 +23,8 @@ public class ClassRequest extends GenericRequest {
 	 * @return String
 	 */
 	public String getStudentClass(String token, int idStudent) {
-		url = String.format("matricula/v0.1/solicitacoes-matriculas?id-discente=%d&ano=%d&periodo=%d", idStudent, 2018,
-				1);
+		//url = String.format("matricula/v0.1/solicitacoes-matriculas?id-discente=%d&ano=%d&periodo=%d", idStudent, 2018, 1);
+		url = String.format("turma/v0.1/turmas?id-discente=%d&id-situacao-turma=1", idStudent);
 		properties.put("x-api-key", xApiKey);
 		properties.put("Authorization", token);
 		String resultado = super.objectRequest();
