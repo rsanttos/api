@@ -8,24 +8,14 @@ import br.com.ufrn.agendaaluno.api.request.TaskRequest;
 
 @Service
 public class TaskService {
-//
-//	public TaskDTO[] getClassTasks(String token, int idClass, String nomeComponente) {
-//		TaskRequest taskRequest = new TaskRequest();
-//		TaskDTO[] tasks = taskRequest.getClassEvaluations(token, idClass);
-//		for(int i = 0 ; i < tasks.length ; i++) {
-//			tasks[i].setNomeComponente(nomeComponente);
-//		}
-//		return tasks;
-//	}
 	
-
 	public Task[] getClassTasks(String token, int idClass, String nomeComponente) {
 		TaskRequest taskRequest = new TaskRequest();
 		String tasksStr = taskRequest.getClassTasks(token, idClass);
 		TaskDTO tDto = new TaskDTO();
 		Task[] tasks = tDto.toArrayObject(tasksStr);
-		if(tasks != null) {
-			for(int i = 0 ; i < tasks.length ; i++) {
+		if (tasks != null) {
+			for (int i = 0; i < tasks.length; i++) {
 				tasks[i].setNomeComponente(nomeComponente);
 			}
 		}

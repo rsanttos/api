@@ -30,4 +30,19 @@ public class ClassRequest extends GenericRequest {
 		String resultado = super.objectRequest();
 		return resultado;
 	}
+
+	/**
+	 * Método responsável por obter as turmas em que um professor é o docente
+	 * 
+	 * @param token
+	 * @param idDocente
+	 * @return String
+	 */
+	public String getProfessorClasses(String token, int idDocente) {
+		url = String.format("turma/v0.1/turmas?id-docente=%d&id-situacao-turma=1", idDocente);
+		properties.put("x-api-key", xApiKey);
+		properties.put("Authorization", token);
+		String resultado = super.objectRequest();
+		return resultado;
+	}
 }

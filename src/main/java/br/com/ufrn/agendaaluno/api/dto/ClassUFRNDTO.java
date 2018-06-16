@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
 public class ClassUFRNDTO extends DTO {
+	
 	@Override
 	public ClassUFRN toObject(String json) {
 		Gson gson = new Gson();

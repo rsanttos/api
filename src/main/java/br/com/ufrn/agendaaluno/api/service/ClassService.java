@@ -23,4 +23,14 @@ public class ClassService {
 		ClassUFRNDTO cDto = new ClassUFRNDTO();
 		return cDto.toArrayObject(studentClassesStr);
 	}
+
+	
+	public ClassUFRN[] getActiveProfessorClasses(String token, int idDocente) {
+		ClassRequest classRequest = new ClassRequest();
+		String studentClassesStr = classRequest.getProfessorClasses(token, idDocente);
+
+		ClassUFRNDTO cDto = new ClassUFRNDTO();
+		return cDto.toArrayObject(studentClassesStr);
+	}
+	
 }

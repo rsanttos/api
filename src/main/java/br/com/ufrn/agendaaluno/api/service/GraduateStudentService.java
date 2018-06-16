@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudentFactory;
+import br.com.ufrn.agendaaluno.api.model.user.User;
+import br.com.ufrn.agendaaluno.api.model.user.UserFactoryImpl;
 import br.com.ufrn.agendaaluno.api.request.GraduateStudentRequest;
 import br.com.ufrn.agendaaluno.api.request.SigaaRequest;
 
@@ -16,11 +18,12 @@ public class GraduateStudentService {
 		String userStr = sigaaRequest.getUserSIGAA(token);	
 		System.out.println(userStr);
 		GraduateStudentFactory gsFactory = new GraduateStudentFactory();
-		GraduateStudent student = (GraduateStudent) gsFactory.createUserFromJson(userStr);
+		UserFactoryImpl uFactory = new UserFactoryImpl();
+		User user = uFactory.createUserFromJson(userStr);
 		
-		String studentStr = graduateStudentRequest.getStudentSIGAA(token, student.getCpf_cnpj());
+		String studentStr = graduateStudentRequest.getStudentSIGAA(token, user.getCpf_cnpj());
 		System.out.println(studentStr);
-		student = (GraduateStudent) gsFactory.createUserFromJson(studentStr);
+		GraduateStudent student = (GraduateStudent) gsFactory.createUserFromJson(studentStr);
 		
 		return student;
 	}
