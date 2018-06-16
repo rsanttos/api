@@ -13,7 +13,7 @@ public class GraduateStudentFactory implements UserFactory {
 	@Override
 	public User createUser() {
 		// TODO Auto-generated method stub
-		return null;
+		return new GraduateStudent();
 	}
 
 }
