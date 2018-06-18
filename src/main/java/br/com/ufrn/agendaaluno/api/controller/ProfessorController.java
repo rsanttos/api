@@ -43,21 +43,10 @@ public class ProfessorController {
 
 		ClassUFRN[] classes = classService.getActiveProfessorClasses(token, p.getId_docente());
 		p.setClasses(classes);
-		System.out.println("---> OBTENDO TAREFAS CADASTRADAS NAS TURMAS DO DOCENTE <---");
-		for (int i = 0; i < p.getClasses().length; i++) {
-			ClassUFRN c = p.getClasses()[i];
-			Task[] tasks = taskService.getClassTasks(token, c.getId_turma(), c.getNome_componente());
-			c.setTasks(tasks);
-			p.getClasses()[i] = c;
-		}
-		System.out.println("---> OBTENDO AVALIAÇÕES CADASTRADAS NAS TURMAS DO DOCENTE <---");
-		for (int i = 0; i < p.getClasses().length; i++) {
-			ClassUFRN c = p.getClasses()[i];
-			Evaluation[] evaluations = evaluationService.getClassEvaluations(token, c.getId_turma(),
-					c.getNome_componente());
-			c.setEvaluations(evaluations);
-			p.getClasses()[i] = c;
-		}
+		
+		classes = taskService.getTasksClasses(token, classes);
+		classes = evaluationService.getEvaluationsClasses(token, classes);
+		
 		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
 		System.out.println("- DADOS DO USUÁRIO NO SIGAA");
 		System.out.println("- DADOS DO DOCENTE NO SIGAA");

@@ -14,7 +14,6 @@ import br.com.ufrn.agendaaluno.api.model.user.UndergraduateStudent;
 import br.com.ufrn.agendaaluno.api.service.ClassService;
 import br.com.ufrn.agendaaluno.api.service.EvaluationService;
 import br.com.ufrn.agendaaluno.api.service.GraduateStudentService;
-import br.com.ufrn.agendaaluno.api.service.StudentService;
 import br.com.ufrn.agendaaluno.api.service.TaskService;
 import br.com.ufrn.agendaaluno.api.service.UndergraduateStudentService;
 
@@ -36,8 +35,61 @@ public class StudentController {
 	@Autowired
 	private EvaluationService evaluationService;
 
-	@RequestMapping(value = "/student/undergraduate/{token}", method = RequestMethod.GET)
-	public UndergraduateStudent getUndergraduateStudentLoggedIn(@PathVariable String token) {
+	@RequestMapping(value = "/student/undergraduate/light/{token}/{idDiscente}", method = RequestMethod.GET)
+	public ClassUFRN[] getUndergraduateStudentLightClasses(@PathVariable String token, @PathVariable int idDiscente) {
+		System.out.println("*************************************************************************************");
+		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS DAS TURMAS DO ALUNO <---");
+		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
+		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, idDiscente);
+
+		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
+		System.out.println("- DADOS DAS TURMAS DO DISCENTE NO SIGAA");
+		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
+		System.out.println("*************************************************************************************");
+
+		return studentClasses;
+	}
+
+	@RequestMapping(value = "/student/undergraduate/full/{token}/{idDiscente}", method = RequestMethod.GET)
+	public ClassUFRN[] getUndergraduateStudentFullClasses(@PathVariable String token, @PathVariable int idDiscente) {
+		System.out.println("*************************************************************************************");
+		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS DAS TURMAS DO ALUNO <---");
+		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
+		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, idDiscente);
+
+		studentClasses = taskService.getTasksClasses(token, studentClasses);
+		studentClasses = evaluationService.getEvaluationsClasses(token, studentClasses);
+
+		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
+		System.out.println("- DADOS DAS TURMAS DO DISCENTE NO SIGAA");
+		System.out.println("- DADOS DAS TAREFAS DO DISCENTE NO SIGAA");
+		System.out.println("- DADOS DAS AVALIAÇÕES DO DISCENTE NO SIGAA");
+		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
+		System.out.println("*************************************************************************************");
+
+		return studentClasses;
+	}
+
+	@RequestMapping(value = "/student/undergraduate/light/{token}", method = RequestMethod.GET)
+	public UndergraduateStudent getUndergraduateLightStudentLoggedIn(@PathVariable String token) {
+		System.out.println("*************************************************************************************");
+		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS ALUNO <---");
+		System.out.println("---> OBTENDO INFORMAÇÕES DO USUÁRIO LOGADO NO SIGAA <---");
+		System.out.println("---> OBTENDO INFORMAÇÕES DO DISCENTE <---");
+		UndergraduateStudent undergraduateStudent = (UndergraduateStudent) undergraduateStudentService
+				.getStudentLoggedIn(token);
+
+		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
+		System.out.println("- DADOS DO USUÁRIO NO SIGAA");
+		System.out.println("- DADOS DO DISCENTE NO SIGAA");
+		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
+		System.out.println("*************************************************************************************");
+
+		return undergraduateStudent;
+	}
+
+	@RequestMapping(value = "/student/undergraduate/full/{token}", method = RequestMethod.GET)
+	public UndergraduateStudent getUndergraduateFullStudentLoggedIn(@PathVariable String token) {
 		System.out.println("*************************************************************************************");
 		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS ALUNO <---");
 		System.out.println("---> OBTENDO INFORMAÇÕES DO USUÁRIO LOGADO NO SIGAA <---");
@@ -47,21 +99,9 @@ public class StudentController {
 		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
 		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, undergraduateStudent.getId_discente());
 		undergraduateStudent.setClasses(studentClasses);
-		System.out.println("---> OBTENDO TAREFAS DO DISCENTE <---");
-		for (int i = 0; i < undergraduateStudent.getClasses().length; i++) {
-			ClassUFRN c = undergraduateStudent.getClasses()[i];
-			Task[] tasks = taskService.getClassTasks(token, c.getId_turma(), c.getNome_componente());
-			c.setTasks(tasks);
-			undergraduateStudent.getClasses()[i] = c;
-		}
-		System.out.println("---> OBTENDO AVALIAÇÕES DO DISCENTE <---");
-		for (int i = 0; i < undergraduateStudent.getClasses().length; i++) {
-			ClassUFRN c = undergraduateStudent.getClasses()[i];
-			Evaluation[] evaluations = evaluationService.getClassEvaluations(token, c.getId_turma(),
-					c.getNome_componente());
-			c.setEvaluations(evaluations);
-			undergraduateStudent.getClasses()[i] = c;
-		}
+
+		studentClasses = taskService.getTasksClasses(token, studentClasses);
+		studentClasses = evaluationService.getEvaluationsClasses(token, studentClasses);
 
 		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
 		System.out.println("- DADOS DO USUÁRIO NO SIGAA");
@@ -75,7 +115,7 @@ public class StudentController {
 		return undergraduateStudent;
 	}
 
-	@RequestMapping(value = "/student/graduate/{token}", method = RequestMethod.GET)
+	@RequestMapping(value = "/student/graduate/full/{token}", method = RequestMethod.GET)
 	public GraduateStudent getGraduateStudentLoggedIn(@PathVariable String token) {
 		System.out.println("*************************************************************************************");
 		System.out.println("\n---> AGENDA DO ALUNO DE PÓS GRADUAÇÃO REQUISITOU DADOS ALUNO <---");
@@ -112,4 +152,39 @@ public class StudentController {
 
 		return graduateStudent;
 	}
+
+	@RequestMapping(value = "/student/undergraduate/tasks/{token}/{idDiscente}", method = RequestMethod.GET)
+	public ClassUFRN[] getTasksOfClasses(@PathVariable String token, @PathVariable int idDiscente) {
+		System.out.println("*************************************************************************************");
+		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS DAS TURMAS DO ALUNO <---");
+		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
+		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, idDiscente);
+
+		studentClasses = taskService.getTasksClasses(token, studentClasses);
+
+		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
+		System.out.println("- DADOS DAS TURMAS DO DISCENTE NO SIGAA");
+		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
+		System.out.println("*************************************************************************************");
+
+		return studentClasses;
+	}
+
+	@RequestMapping(value = "/student/undergraduate/evaluations/{token}/{idDiscente}", method = RequestMethod.GET)
+	public ClassUFRN[] getEvaluationsOfClasses(@PathVariable String token, @PathVariable int idDiscente) {
+		System.out.println("*************************************************************************************");
+		System.out.println("\n---> AGENDA DO ALUNO DE GRADUAÇÃO REQUISITOU DADOS DAS TURMAS DO ALUNO <---");
+		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
+		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, idDiscente);
+
+		studentClasses = evaluationService.getEvaluationsClasses(token, studentClasses);
+
+		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE LOGADO FORAM CARREGADAS <---");
+		System.out.println("- DADOS DAS TURMAS DO DISCENTE NO SIGAA");
+		System.out.println("---> INFORMAÇÕES CARREGADAS E DISPONIBILIZADAS PARA O CLIENTE <---");
+		System.out.println("*************************************************************************************");
+
+		return studentClasses;
+	}
+
 }
