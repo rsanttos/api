@@ -37,7 +37,7 @@ public class StudentAssistentController {
 	private EvaluationService evaluationService;
 	
 	@RequestMapping(value = "/student/graduate/assistent/{token}", method = RequestMethod.GET)
-	List<Tip> getGraduateTips(@PathVariable String token) {
+	public List<Tip> getGraduateTips(@PathVariable String token) {
 		
 		GraduateStudent graduateStudent = (GraduateStudent) graduateStudentService.getStudentLoggedIn(token);
 		System.out.println("---> OBTENDO TURMAS DO DISCENTE DE PÓS <---");
