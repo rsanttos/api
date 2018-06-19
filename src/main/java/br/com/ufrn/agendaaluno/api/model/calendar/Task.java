@@ -1,6 +1,6 @@
-package br.com.ufrn.agendaaluno.api.model.classes;
+package br.com.ufrn.agendaaluno.api.model.calendar;
 
-public class Task {
+public class Task extends Commitment {
 	private int id_turma;
 	private String nomeComponente;
 	private String titulo;
@@ -95,5 +95,4 @@ public class Task {
 	public void setMinuto_entrega(int minuto_entrega) {
 		this.minuto_entrega = minuto_entrega;
 	}
-
 }

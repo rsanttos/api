@@ -1,5 +1,8 @@
 package br.com.ufrn.agendaaluno.api.model.classes;
 
+import br.com.ufrn.agendaaluno.api.model.calendar.Evaluation;
+import br.com.ufrn.agendaaluno.api.model.calendar.Task;
+
 public class ClassUFRN {
 	private int id_turma;
 	private String local;

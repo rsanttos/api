@@ -1,73 +1,26 @@
 package br.com.ufrn.agendaaluno.api.model.calendar;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-@Entity
 public class Holiday extends Commitment {
-	@Id
-	@GeneratedValue
-	@Column(name = "id_holiday")
-	private long idHoliday;
-
-	private long date;
-	private String description;
-
-	@ManyToOne
-	@JoinColumn(name = "id_calendar")
-	private GraduateCalendar calendar;
+	private long data_feriado;
+	private String descricao;
 
 	public Holiday() {
 		super();
 	}
 
-	public Holiday(long date, String description) {
-		super();
-		this.date = date;
-		this.description = description;
+	public long getData_feriado() {
+		return data_feriado;
 	}
 
-	public Holiday(long date, String description, GraduateCalendar calendar) {
-		super();
-		this.date = date;
-		this.description = description;
-		this.calendar = calendar;
+	public void setData_feriado(long data_feriado) {
+		this.data_feriado = data_feriado;
 	}
 
-	public long getIdHoliday() {
-		return idHoliday;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setIdHoliday(long idHoliday) {
-		this.idHoliday = idHoliday;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-
-	public long getDate() {
-		return date;
-	}
-
-	public void setDate(long date) {
-		this.date = date;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public GraduateCalendar getCalendar() {
-		return calendar;
-	}
-
-	public void setCalendar(GraduateCalendar calendar) {
-		this.calendar = calendar;
-	}
-
 }

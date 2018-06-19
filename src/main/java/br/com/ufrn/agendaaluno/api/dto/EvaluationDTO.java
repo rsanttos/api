@@ -2,7 +2,7 @@ package br.com.ufrn.agendaaluno.api.dto;
 
 import com.google.gson.Gson;
 
-import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
+import br.com.ufrn.agendaaluno.api.model.calendar.Evaluation;
 
 public class EvaluationDTO extends DTO {
 

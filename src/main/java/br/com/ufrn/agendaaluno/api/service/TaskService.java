@@ -3,8 +3,8 @@ package br.com.ufrn.agendaaluno.api.service;
 import org.springframework.stereotype.Service;
 
 import br.com.ufrn.agendaaluno.api.dto.TaskDTO;
+import br.com.ufrn.agendaaluno.api.model.calendar.Task;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
-import br.com.ufrn.agendaaluno.api.model.classes.Task;
 import br.com.ufrn.agendaaluno.api.request.TaskRequest;
 
 @Service

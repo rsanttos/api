@@ -22,11 +22,11 @@ public class CalendarRequest extends GenericRequest {
 	 * @param token
 	 * @return CalendarDTO
 	 */
-	public CalendarDTO getCalendar(String token) {
+	public String getCalendar(String token) {
 		properties.put("Authorization", token);
 		properties.put("x-api-key", xApiKey);
 		String resultado = super.objectRequest();
-		return CalendarDTO.toObject(resultado);
+		return resultado;
 	}
 
 }

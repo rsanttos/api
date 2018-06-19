@@ -23,11 +23,10 @@ public class HolidayRequest extends GenericRequest {
 	 * @param token
 	 * @return
 	 */
-	public HolidayDTO[] getHolidays(String token) {
+	public String getHolidays(String token) {
 		properties.put("Authorization", token);
 		properties.put("x-api-key", xApiKey);
 		String resultado = super.objectRequest();
-		HolidayDTO[] holidays = HolidayDTO.toArrayObject(resultado);
-		return holidays;
+		return resultado;
 	}
 }

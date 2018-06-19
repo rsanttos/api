@@ -2,7 +2,7 @@ package br.com.ufrn.agendaaluno.api.dto;
 
 import com.google.gson.Gson;
 
-import br.com.ufrn.agendaaluno.api.model.classes.Task;
+import br.com.ufrn.agendaaluno.api.model.calendar.Task;
 
 public class TaskDTO extends DTO {
 

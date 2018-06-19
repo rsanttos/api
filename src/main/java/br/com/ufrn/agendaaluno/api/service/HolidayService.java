@@ -1,25 +1,25 @@
 package br.com.ufrn.agendaaluno.api.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ufrn.agendaaluno.api.dao.HolidayRepository;
-import br.com.ufrn.agendaaluno.api.dto.HolidayDTO;
 import br.com.ufrn.agendaaluno.api.model.calendar.Holiday;
+import br.com.ufrn.agendaaluno.api.model.calendar.factory.HolidayFactory;
 import br.com.ufrn.agendaaluno.api.request.HolidayRequest;
 
 @Service
 public class HolidayService {
-
-	@Autowired
-	private HolidayRepository holidayRepo;
+//
+//	@Autowired
+//	private HolidayRepository holidayRepo;
 	
-	public HolidayDTO[] getHolidays(String token){
+	public Holiday[] getHolidays(String token){
 		HolidayRequest hRequest = new HolidayRequest();
-		return hRequest.getHolidays(token);
+		String holidaysStr = hRequest.getHolidays(token);
+		HolidayFactory hFactory = new HolidayFactory();
+		return (Holiday[]) hFactory.createArrayHolidayFromJson(holidaysStr);
 	}
 	
-	public void save(Holiday holiday) {
-		holidayRepo.save(holiday);
-	}
+//	public void save(Holiday holiday) {
+//		holidayRepo.save(holiday);
+//	}
 }

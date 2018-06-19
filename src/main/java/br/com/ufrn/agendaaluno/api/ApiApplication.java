@@ -1,23 +1,14 @@
 package br.com.ufrn.agendaaluno.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import br.com.ufrn.agendaaluno.api.service.AuthenticationService;
-import br.com.ufrn.agendaaluno.api.service.CalendarService;
-
 @SpringBootApplication
 public class ApiApplication {
 
-	@Autowired
-	private AuthenticationService authService;
-
-	@Autowired
-	private CalendarService calendarService;
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
 	}
