@@ -1,13 +1,14 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
-import br.com.ufrn.agendaaluno.api.dto.GraduateStudentDTO;
+import br.com.ufrn.agendaaluno.api.dto.StudentDTO;
 
-public class GraduateStudentFactory implements UserFactory {
+public class StudentFactory implements UserFactory {
+
 
 	@Override
 	public User createUserFromJson(String json) {
-		GraduateStudentDTO gsDto = new GraduateStudentDTO();
-		return gsDto.toObject(json);
+		StudentDTO sDto = new StudentDTO();
+		return sDto.toObject(json);
 	}
 
 	@Override

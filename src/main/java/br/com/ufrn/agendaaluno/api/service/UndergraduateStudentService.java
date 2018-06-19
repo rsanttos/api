@@ -2,37 +2,35 @@ package br.com.ufrn.agendaaluno.api.service;
 
 import org.springframework.stereotype.Service;
 
-import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
-import br.com.ufrn.agendaaluno.api.model.user.GraduateStudentFactory;
+import br.com.ufrn.agendaaluno.api.model.user.UndergraduateStudent;
+import br.com.ufrn.agendaaluno.api.model.user.UndergraduateStudentFactory;
 import br.com.ufrn.agendaaluno.api.model.user.User;
 import br.com.ufrn.agendaaluno.api.model.user.UserFactoryImpl;
-import br.com.ufrn.agendaaluno.api.request.GraduateStudentRequest;
 import br.com.ufrn.agendaaluno.api.request.SigaaRequest;
 import br.com.ufrn.agendaaluno.api.request.StudentRequest;
 import br.com.ufrn.agendaaluno.api.util.LevelOfEducation;
 
 @Service
-public class GraduateStudentService {
-
+public class UndergraduateStudentService {
+	
 	private StudentRequest sRequest;
-
-	public GraduateStudentService() {
+	
+	public UndergraduateStudentService () {
 		sRequest = new StudentRequest();
 	}
 
-	public GraduateStudent getStudentLoggedIn(String token) {
+	public UndergraduateStudent getStudentLoggedIn(String token) {
 		SigaaRequest sigaaRequest = new SigaaRequest();
-		String userStr = sigaaRequest.getUserSIGAA(token);
+		String userStr = sigaaRequest.getUserSIGAA(token);	
 		System.out.println(userStr);
-		GraduateStudentFactory gsFactory = new GraduateStudentFactory();
+		UndergraduateStudentFactory ugsFactory = new UndergraduateStudentFactory();
 		UserFactoryImpl uFactory = new UserFactoryImpl();
 		User user = uFactory.createUserFromJson(userStr);
-
-		String studentStr = sRequest.getStudentSIGAA(token, user.getCpf_cnpj(),
-				LevelOfEducation.POSTGRADUATE_LATO_SENSU);
+		
+		String studentStr = sRequest.getStudentSIGAA(token, user.getCpf_cnpj(), LevelOfEducation.GRADUATION);
 		System.out.println(studentStr);
-		GraduateStudent student = (GraduateStudent) gsFactory.createUserFromJson(studentStr);
-
+		UndergraduateStudent student = (UndergraduateStudent) ugsFactory.createUserFromJson(studentStr);
+		
 		return student;
 	}
 }

@@ -1,8 +1,5 @@
 package br.com.ufrn.agendaaluno.api.model.classes;
 
-import br.com.ufrn.agendaaluno.api.dto.EvaluationDTO;
-import br.com.ufrn.agendaaluno.api.dto.TaskDTO;
-
 public class ClassUFRN {
 	private int id_turma;
 	private String local;
@@ -10,6 +7,7 @@ public class ClassUFRN {
 	private String nome_componente;
 	private String codigo_componente;
 	private int id_situacao_solicitacao;
+	private int id_situacao_turma;
 
 	private Task[] tasks;
 	private Evaluation[] evaluations;
@@ -80,6 +78,14 @@ public class ClassUFRN {
 
 	public void setEvaluations(Evaluation[] evaluations) {
 		this.evaluations = evaluations;
+	}
+
+	public int getId_situacao_turma() {
+		return id_situacao_turma;
+	}
+
+	public void setId_situacao_turma(int id_situacao_turma) {
+		this.id_situacao_turma = id_situacao_turma;
 	}
 
 }

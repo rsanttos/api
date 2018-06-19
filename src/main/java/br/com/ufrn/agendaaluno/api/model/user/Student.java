@@ -1,6 +1,6 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
-public abstract class Student extends User {
+public class Student extends User {
 
 	private int id_discente;
 	private long matricula;

@@ -1,11 +1,8 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
-import java.util.List;
-
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
 public class GraduateStudent extends Student {
-
 	private int ano_ingresso;
 	private int id_curso;
 	private String nome_curso;
