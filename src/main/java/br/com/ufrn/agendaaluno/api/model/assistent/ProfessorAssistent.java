@@ -2,14 +2,14 @@ package br.com.ufrn.agendaaluno.api.model.assistent;
 
 import java.util.List;
 
-import br.com.ufrn.agendaaluno.api.model.calendar.Commitment;
+import br.com.ufrn.agendaaluno.api.model.user.Professor;
 
-public class ProfessorAssistent implements AssistentStrategy {
+public class ProfessorAssistent implements AssistentStrategy<Professor> {
 
 	@Override
-	public Tip generateTips(List<Commitment> commitments) {
+	public List<Tip> generateTips(Professor professor) {
 		// TODO Auto-generated method stub
-		return new ProfessorTip();
+		return null;
 	}
 
 }

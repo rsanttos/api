@@ -1,6 +1,8 @@
 package br.com.ufrn.agendaaluno.api.model.classes;
 
-public class Task {
+import br.com.ufrn.agendaaluno.api.model.calendar.Commitment;
+
+public class Task extends Commitment {
 	private int id_turma;
 	private String nomeComponente;
 	private String titulo;

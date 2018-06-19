@@ -14,7 +14,6 @@ public class Holiday extends Commitment {
 	@Column(name = "id_holiday")
 	private long idHoliday;
 
-	private long date;
 	private String description;
 
 	@ManyToOne
@@ -26,14 +25,12 @@ public class Holiday extends Commitment {
 	}
 
 	public Holiday(long date, String description) {
-		super();
-		this.date = date;
+		super(date);
 		this.description = description;
 	}
 
 	public Holiday(long date, String description, GraduateCalendar calendar) {
-		super();
-		this.date = date;
+		super(date);
 		this.description = description;
 		this.calendar = calendar;
 	}
@@ -44,14 +41,6 @@ public class Holiday extends Commitment {
 
 	public void setIdHoliday(long idHoliday) {
 		this.idHoliday = idHoliday;
-	}
-
-	public long getDate() {
-		return date;
-	}
-
-	public void setDate(long date) {
-		this.date = date;
 	}
 
 	public String getDescription() {

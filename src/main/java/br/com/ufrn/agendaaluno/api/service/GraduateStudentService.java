@@ -6,7 +6,6 @@ import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudentFactory;
 import br.com.ufrn.agendaaluno.api.model.user.User;
 import br.com.ufrn.agendaaluno.api.model.user.UserFactoryImpl;
-import br.com.ufrn.agendaaluno.api.request.GraduateStudentRequest;
 import br.com.ufrn.agendaaluno.api.request.SigaaRequest;
 import br.com.ufrn.agendaaluno.api.request.StudentRequest;
 import br.com.ufrn.agendaaluno.api.util.LevelOfEducation;

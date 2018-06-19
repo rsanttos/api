@@ -1,10 +1,11 @@
 package br.com.ufrn.agendaaluno.api.model.classes;
 
-public class Evaluation {
+import br.com.ufrn.agendaaluno.api.model.calendar.Commitment;
+
+public class Evaluation extends Commitment {
 
 	private int id_avaliacao;
 	private String nomeComponente;
-	private long data;
 	private String hora;
 	private String descricao;	
 	
@@ -23,12 +24,7 @@ public class Evaluation {
 	public void setNomeComponente(String nomeComponente) {
 		this.nomeComponente = nomeComponente;
 	}
-	public long getData() {
-		return data;
-	}
-	public void setData(long data) {
-		this.data = data;
-	}
+
 	public String getHora() {
 		return hora;
 	}
