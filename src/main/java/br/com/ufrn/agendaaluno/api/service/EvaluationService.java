@@ -11,7 +11,7 @@ import br.com.ufrn.agendaaluno.api.request.EvaluationRequest;
 public class EvaluationService {
 
 	public ClassUFRN[] getEvaluationsClasses(String token, ClassUFRN[] studentClasses) {
-		System.out.println("---> OBTENDO AVALIAÇÕES DAS TURMAS DISCENTE <---");
+		System.out.println("---> OBTENDO AVALIAÇÕES DAS TURMAS <---");
 		for (int i = 0; i < studentClasses.length; i++) {
 			ClassUFRN c = studentClasses[i];
 			Evaluation[] evaluations = getClassEvaluations(token, c.getId_turma(),

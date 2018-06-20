@@ -12,7 +12,7 @@ public class TaskService {
 
 	public ClassUFRN[] getTasksClasses(String token, ClassUFRN[] classes) {
 
-		System.out.println("---> OBTENDO TAREFAS DAS TURMAS DISCENTE <---");
+		System.out.println("---> OBTENDO TAREFAS DAS TURMAS <---");
 		for (int i = 0; i < classes.length; i++) {
 			ClassUFRN c = classes[i];
 			Task[] tasks = getClassTasks(token, c.getId_turma(), c.getNome_componente());

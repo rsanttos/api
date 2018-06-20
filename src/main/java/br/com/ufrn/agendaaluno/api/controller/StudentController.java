@@ -125,22 +125,10 @@ public class StudentController {
 		System.out.println("---> OBTENDO TURMAS DO DISCENTE DE PÓS <---");
 		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, graduateStudent.getId_discente());
 		graduateStudent.setClasses(studentClasses);
-		System.out.println("---> OBTENDO TAREFAS DO DISCENTE DE PÓS <---");
-		for (int i = 0; i < graduateStudent.getClasses().length; i++) {
-			ClassUFRN c = graduateStudent.getClasses()[i];
-			Task[] tasks = taskService.getClassTasks(token, c.getId_turma(), c.getNome_componente());
-			c.setTasks(tasks);
-			graduateStudent.getClasses()[i] = c;
-		}
-		System.out.println("---> OBTENDO AVALIAÇÕES DO DISCENTE DE PÓS <---");
-		for (int i = 0; i < graduateStudent.getClasses().length; i++) {
-			ClassUFRN c = graduateStudent.getClasses()[i];
-			Evaluation[] evaluations = evaluationService.getClassEvaluations(token, c.getId_turma(),
-					c.getNome_componente());
-			c.setEvaluations(evaluations);
-			graduateStudent.getClasses()[i] = c;
-		}
-
+			
+		studentClasses = taskService.getTasksClasses(token, studentClasses);
+		studentClasses = evaluationService.getEvaluationsClasses(token, studentClasses);
+		
 		System.out.println("---> AS SEGUINTES INFORMAÇÕES DO DISCENTE DE PÓS LOGADO FORAM CARREGADAS <---");
 		System.out.println("- DADOS DO USUÁRIO NO SIGAA");
 		System.out.println("- DADOS DO DISCENTE DE PÓS NO SIGAA");

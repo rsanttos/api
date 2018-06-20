@@ -8,6 +8,13 @@ public class StudyGroup extends Commitment {
 		super();
 	}
 
+	public StudyGroup(String sala, String disciplina, long finalDate) {
+		super();
+		this.sala = sala;
+		this.disciplina = disciplina;
+		this.finalDate = finalDate;
+	}
+
 	public String getSala() {
 		return sala;
 	}
