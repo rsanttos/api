@@ -30,6 +30,7 @@ public class TaskService {
 		Task[] tasks = tDto.toArrayObject(tasksStr);
 		if (tasks != null) {
 			for (int i = 0; i < tasks.length; i++) {
+				tasks[i].setFinalDate(tasks[i].getData_entrega());
 				tasks[i].setNomeComponente(nomeComponente);
 			}
 		}

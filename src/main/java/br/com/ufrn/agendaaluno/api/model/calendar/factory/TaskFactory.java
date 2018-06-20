@@ -7,8 +7,7 @@ import br.com.ufrn.agendaaluno.api.model.calendar.Task;
 public class TaskFactory implements CommitmentFactory {
 
 	@Override
-	public Commitment createCommitment() {
-		
+	public Commitment createCommitment() {		
 		return new Task();
 	}
 

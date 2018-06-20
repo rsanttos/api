@@ -28,6 +28,7 @@ public class EvaluationService {
 		EvaluationDTO eDto = new EvaluationDTO();
 		Evaluation[] evaluations = eDto.toArrayObject(evaluationsStr);
 		for(int i = 0 ; i < evaluations.length ; i++) {
+			evaluations[i].setFinalDate(evaluations[i].getData());
 			evaluations[i].setNomeComponente(nomeComponente);
 		}
 		return evaluations;

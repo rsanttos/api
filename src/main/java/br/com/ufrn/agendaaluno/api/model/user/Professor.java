@@ -1,5 +1,10 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
+import java.util.List;
+
+import br.com.ufrn.agendaaluno.api.model.calendar.Commitment;
+import br.com.ufrn.agendaaluno.api.model.calendar.Meeting;
+import br.com.ufrn.agendaaluno.api.model.calendar.OrientationMeeting;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
 public class Professor extends User {
@@ -9,9 +14,13 @@ public class Professor extends User {
 	private String siape;
 	private String unidade;
 	private long data_admissao;
-	private int id_docente;	
+	private int id_docente;
 
 	private ClassUFRN[] classes;
+
+	private List<Meeting> meetings;
+
+	private List<OrientationMeeting> orientationMeetings;
 
 	public Professor() {
 		super();
@@ -79,6 +88,22 @@ public class Professor extends User {
 
 	public void setClasses(ClassUFRN[] classes) {
 		this.classes = classes;
+	}
+
+	public List<Meeting> getMeetings() {
+		return meetings;
+	}
+
+	public void setMeetings(List<Meeting> meetings) {
+		this.meetings = meetings;
+	}
+
+	public List<OrientationMeeting> getOrientationMeetings() {
+		return orientationMeetings;
+	}
+
+	public void setOrientationMeetings(List<OrientationMeeting> orientationMeetings) {
+		this.orientationMeetings = orientationMeetings;
 	}
 
 }
