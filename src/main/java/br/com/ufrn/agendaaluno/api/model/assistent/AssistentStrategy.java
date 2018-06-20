@@ -2,8 +2,8 @@ package br.com.ufrn.agendaaluno.api.model.assistent;
 
 import java.util.List;
 
-import br.com.ufrn.agendaaluno.api.model.user.User;
+import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
-public interface AssistentStrategy<T extends User> {
-	public List<Tip> generateTips(T user);
+public interface AssistentStrategy {
+	public List<Tip> generateTips(ClassUFRN classesUFRN[]);
 }

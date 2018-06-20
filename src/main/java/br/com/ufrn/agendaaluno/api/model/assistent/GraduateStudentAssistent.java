@@ -7,22 +7,21 @@ import java.util.List;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
 import br.com.ufrn.agendaaluno.api.model.classes.Task;
-import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
 
-public class GraduateStudentAssistent implements AssistentStrategy<GraduateStudent> {	
+public class GraduateStudentAssistent implements AssistentStrategy {	
 	@Override
-	public List<Tip> generateTips(GraduateStudent user) {
+	public List<Tip> generateTips(ClassUFRN classes[]) {
 		List<Tip> tips = new ArrayList<>();
 		
 		Calendar c = Calendar.getInstance();
 		long now = c.getTimeInMillis();
 		
 		
-		for (int i = 0; i < user.getClasses().length; i++) {
-			ClassUFRN classUFRN = user.getClasses()[i];
+		for (int i = 0; i < classes.length; i++) {
+			ClassUFRN classUFRN = classes[i];
 
 			for (Evaluation e : classUFRN.getEvaluations()) {
-				if (e.getDate() - now <= 432000000) {
+				if (e.getDate() - now <= 604800000) {
 					tips.add(new GraduateStudentTip(e, TipType.EvaluationInSevenDays));
 				}
 			}

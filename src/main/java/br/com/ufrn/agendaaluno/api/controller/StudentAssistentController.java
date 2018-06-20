@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.ufrn.agendaaluno.api.model.assistent.GraduateStudentAssistent;
 import br.com.ufrn.agendaaluno.api.model.assistent.Tip;
+import br.com.ufrn.agendaaluno.api.model.assistent.UndergraduateStudentAssistent;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
 import br.com.ufrn.agendaaluno.api.model.classes.Task;
 import br.com.ufrn.agendaaluno.api.model.user.GraduateStudent;
+import br.com.ufrn.agendaaluno.api.model.user.UndergraduateStudent;
 import br.com.ufrn.agendaaluno.api.service.AssistentService;
 import br.com.ufrn.agendaaluno.api.service.ClassService;
 import br.com.ufrn.agendaaluno.api.service.EvaluationService;
@@ -35,7 +37,7 @@ public class StudentAssistentController {
 
 	@Autowired
 	private EvaluationService evaluationService;
-	
+
 	@RequestMapping(value = "/student/graduate/assistent/{token}", method = RequestMethod.GET)
 	public List<Tip> getGraduateTips(@PathVariable String token) {
 		
@@ -62,6 +64,23 @@ public class StudentAssistentController {
 			graduateStudent.getClasses()[i] = c;
 		}
 		
-		return new AssistentService(new GraduateStudentAssistent(), graduateStudent).getTips();
+		return new AssistentService(new GraduateStudentAssistent(), graduateStudent.getClasses()).getTips();
 	}
+	
+	@RequestMapping(value = "/student/undergraduate/assistent/{token}", method = RequestMethod.GET)
+	public List<Tip> getUndergraduateTips(@PathVariable String token) {
+		
+		GraduateStudent graduateStudent = (GraduateStudent) graduateStudentService.getStudentLoggedIn(token);
+		System.out.println("---> OBTENDO INFORMAÇÕES DO DISCENTE <---");
+		UndergraduateStudent undergraduateStudent = (UndergraduateStudent) undergraduateStudentService
+				.getStudentLoggedIn(token);
+		System.out.println("---> OBTENDO TURMAS DO DISCENTE <---");
+		ClassUFRN[] studentClasses = classService.getActiveStudentClasses(token, undergraduateStudent.getId_discente());
+		undergraduateStudent.setClasses(studentClasses);
+
+		studentClasses = taskService.getTasksClasses(token, studentClasses);
+		studentClasses = evaluationService.getEvaluationsClasses(token, studentClasses);
+		
+		return new AssistentService(new UndergraduateStudentAssistent(), graduateStudent.getClasses()).getTips();
+	}	
 }

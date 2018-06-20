@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
-import br.com.ufrn.agendaaluno.api.model.classes.Evaluation;
-import br.com.ufrn.agendaaluno.api.model.classes.Task;
 import br.com.ufrn.agendaaluno.api.model.user.Professor;
 import br.com.ufrn.agendaaluno.api.service.ClassService;
 import br.com.ufrn.agendaaluno.api.service.EvaluationService;
