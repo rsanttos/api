@@ -1,5 +1,8 @@
 package br.com.ufrn.agendaaluno.api.model.user;
 
+import java.util.List;
+
+import br.com.ufrn.agendaaluno.api.model.calendar.StudyGroup;
 import br.com.ufrn.agendaaluno.api.model.classes.ClassUFRN;
 
 public class UndergraduateStudent extends Student {
@@ -9,6 +12,8 @@ public class UndergraduateStudent extends Student {
 	private int periodo_ingresso;
 
 	private ClassUFRN[] classes;
+
+	private List<StudyGroup> studiesGroup;
 
 	public UndergraduateStudent() {
 		super();
@@ -60,6 +65,14 @@ public class UndergraduateStudent extends Student {
 
 	public void setClasses(ClassUFRN[] classes) {
 		this.classes = classes;
+	}
+
+	public List<StudyGroup> getStudiesGroup() {
+		return studiesGroup;
+	}
+
+	public void setStudiesGroup(List<StudyGroup> studiesGroup) {
+		this.studiesGroup = studiesGroup;
 	}
 
 }
